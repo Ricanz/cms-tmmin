@@ -1,0 +1,349 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.MuiInputLabel-shrink {
+  background: white !important;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.menu .MuiCard-root {
+  margin: 20px;
+  border-radius: 20px;
+  flex: 1;
+}
+
+.body {
+  flex: 1 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: 100vh;
+}
+
+.header {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer {
+  background: white;
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: #565656;
+  border-radius: 50px;
+}
+
+.expand {
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.aCenter {
+  align-items: center;
+  justify-content: center;
+}
+
+.bCenter {
+  align-items: center;
+}
+
+.marking {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background: #2ba205;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Untuk elemen dengan scrollbar vertikal */
+.element-with-scrollbar {
+  overflow-y: hidden;
+  /* Menyembunyikan scrollbar vertikal */
+}
+
+/* Untuk elemen dengan scrollbar horizontal */
+.element-with-scrollbar {
+  overflow-x: hidden;
+  /* Menyembunyikan scrollbar horizontal */
+}
+
+/* Untuk elemen dengan scrollbar vertikal dan horizontal */
+.element-with-scrollbar {
+  overflow: hidden;
+  /* Menyembunyikan scrollbar vertikal dan horizontal */
+}
+
+/* Menghilangkan scrollbar pada browser berbasis WebKit */
+.element-with-scrollbar::-webkit-scrollbar {
+  width: 0em;
+  /* Lebar scrollbar */
+}
+
+.element-with-scrollbar::-webkit-scrollbar-track {
+  background-color: transparent;
+  /* Warna latar belakang track scrollbar */
+}
+
+.element-with-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  /* Warna thumb scrollbar */
+}
+
+.fitHeight {
+  height: 100vh;
+}
+
+.list-message {
+  width: 250px;
+}
+
+.overflow {
+  overflow: auto;
+}
+
+.search-box {
+  padding-bottom: 10px;
+}
+
+.search-member {
+  padding: 10px;
+  outline: oldlace;
+  border: 0;
+  background: transparent;
+}
+
+.box-input.row {
+  border: 1px solid #b4b4b4;
+  border-radius: 5px;
+}
+
+.header-chat {
+  height: 60px;
+  border-bottom: 1px solid #c6c6c6;
+}
+
+.body-chat {
+  background: #c6c6c640;
+}
+
+.footer-chat {
+  height: 60px;
+  border-top: 1px solid #c6c6c6;
+}
+
+.fullHeight {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.loginpage {
+  background-image: url(./image/bg_login.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* src/draftEditorStyles.css */
+
+.DraftEditor-root {
+  height: 200px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.DraftEditor-editorContainer {
+  height: 100%;
+}
+
+/* src/App.css or another CSS file */
+.ckeditor-container .ck-editor__editable {
+  max-height: 300px;
+  /* Set the maximum height */
+  overflow-y: auto;
+  /* Add scrollbar if content exceeds maximum height */
+}
+
+.main2 .ck-editor__editable_inline {
+  min-height: calc(100vh - 258px);
+}
+
+.ck-editor__editable_inline {
+  min-height: calc(100vh - 190px);
+  flex: 1;
+}
+
+.row.bCenter.post_label {
+  background: #f0f0f0;
+  padding: 10px;
+}
+
+/* body .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 7px 14px;
+} */
+
+.tags-style {
+  background: #008481;
+  padding: 5px;
+  color: white;
+  display: inline-flex;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+}
+
+textarea.txt_desc {
+  width: 100%;
+  min-height: 150px;
+  max-height: 150px;
+  resize: none;
+}
+
+.image_preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.img-hober {
+  background-color: #00000082;
+}
+
+.img2 {
+  opacity: 0;
+  color: transparent !important;
+  transition: all 0.5s ease;
+}
+
+.img-hober:hover>.image_preview::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000082;
+}
+
+.image_preview:hover>.img2 {
+  opacity: 1;
+  position: absolute;
+  color: white !important;
+  font-size: 100px !important;
+}
+
+body .css-ypiqx9-MuiDialogContent-root {
+  padding: 0 !important;
+}
+
+.tui-image-editor-header-logo {
+  display: none !important;
+}
+
+.tui-image-editor-header {
+  display: none !important;
+}
+
+.widget {
+  margin: 10px;
+  padding: 20px;
+}
+
+.widget-2 {
+  margin: 10px;
+  padding: 10px;
+}
+
+.list-widget {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.title-widget {
+  padding-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.title-widget-2 {
+  padding-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.label-tab {
+  background: white;
+  border: 1px solid #9d9d9d;
+  width: 150px;
+  text-align: center;
+  line-height: 50px;
+  margin-bottom: -1px;
+  cursor: pointer;
+  user-select: none;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-color: #ccc;
+}
+
+.label-tab.active {
+  background-color: #eff8ff;
+  border-bottom: 1px solid white;
+  z-index: 10;
+}
+
+.label-tab:first-child {
+  margin-left: 20px;
+  border-right: unset;
+}
+
+.content-tab.expand {
+  border: 1px solid #9d9d9d;
+  border-radius: 3px;
+}

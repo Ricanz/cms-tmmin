@@ -1,0 +1,460 @@
+{
+    "parameters": [
+        {
+            "name": "provider_code",
+            "value": "provider_code"
+        },
+        {
+            "name": "emp_name",
+            "value": "emp_name"
+        },
+        {
+            "name": "employee_id",
+            "value": "employee_id"
+        },
+        {
+            "name": "frequency_desc",
+            "value": "frequency_desc"
+        },
+        {
+            "name": "plan_code",
+            "value": "plan_code"
+        },
+        {
+            "name": "coverage",
+            "value": "coverage"
+        },
+        {
+            "name": "amt_approved_assess",
+            "value": "amt_approved_assess"
+        },
+        {
+            "name": "benefit",
+            "value": "benefit"
+        },
+        {
+            "name": "benefit_code",
+            "value": "benefit_code"
+        },
+        {
+            "name": "card_no",
+            "value": "Parameter By Card Number"
+        },
+        {
+            "name": "condition_desc",
+            "value": "condition_desc"
+        },
+        {
+            "name": "corp_code",
+            "value": "Parameter by corp_code"
+        },
+        {
+            "name": "corporate_info",
+            "value": "Parameter by corporate_info"
+        },
+        {
+            "name": "coverage_code",
+            "value": "coverage_code"
+        },
+        {
+            "name": "dependent_id",
+            "value": "dependent_id"
+        },
+        {
+            "name": "email",
+            "value": "Email Member"
+        },
+        {
+            "name": "end_date",
+            "value": "end_date"
+        },
+        {
+            "name": "excess_by",
+            "value": "excess_by"
+        },
+        {
+            "name": "family_over_limit",
+            "value": "family_over_limit"
+        },
+        {
+            "name": "frequency_code",
+            "value": "frequency_code"
+        },
+        {
+            "name": "global",
+            "value": "Parameter global all impact"
+        },
+        {
+            "name": "is_indemnity",
+            "value": "Parameter by is_indemnity"
+        },
+        {
+            "name": "limit_type",
+            "value": "limit_type"
+        },
+        {
+            "name": "loa_desc",
+            "value": "loa_desc"
+        },
+        {
+            "name": "max_benefit",
+            "value": "max_benefit"
+        },
+        {
+            "name": "max_value",
+            "value": "max_value"
+        },
+        {
+            "name": "member_id",
+            "value": "Parameter by member_id"
+        },
+        {
+            "name": "member_over_limit",
+            "value": "member_over_limit"
+        },
+        {
+            "name": "mstatus",
+            "value": "mstatus"
+        },
+        {
+            "name": "payor_code",
+            "value": "Parameter by payor_code"
+        },
+        {
+            "name": "payor_member_id",
+            "value": "Parameter by payor_member_id"
+        },
+        {
+            "name": "payor_name",
+            "value": "Parameter by payor_name"
+        },
+        {
+            "name": "policy_no",
+            "value": "Parameter By Number Police"
+        },
+        {
+            "name": "record_status",
+            "value": "record_status"
+        },
+        {
+            "name": "referral_flag",
+            "value": "referral_flag"
+        },
+        {
+            "name": "start_date",
+            "value": "start_date"
+        },
+        {
+            "name": "type_of_room",
+            "value": "Parameter By type_of_room"
+        },
+        {
+            "name": "vip",
+            "value": "Parameter By VIP"
+        }
+    ],
+    "keyrules": [
+        {
+            "name": "[KEY][HOME]-History-Claim",
+            "description": "[KEY][HOME]-History-Claim"
+        },
+        {
+            "name": "[KEY] Discharge Button",
+            "description": "[KEY] Discharge Button"
+        },
+        {
+            "name": "[KEY] Email Login Locking",
+            "description": "Block base on email"
+        },
+        {
+            "name": "[KEY]-Form Registration",
+            "description": "Buka tutup fitur registrasi"
+        },
+        {
+            "name": "[KEY]-GLOBAL-APPLICATION",
+            "description": "Apps Global Identifier"
+        },
+        {
+            "name": "[KEY][HOME]-Member-Info",
+            "description": "[KEY][HOME]-Member-Info"
+        },
+        {
+            "name": "[KEY]-UNDERCONSTRUCTION",
+            "description": "Informasi applikasi dalam perbaikan"
+        },
+        {
+            "name": "[KEY][BENEFIT]-Benefit-MAX",
+            "description": "[KEY][BENEFIT] Benefit MAX"
+        },
+        {
+            "name": "[KEY][HOME] News Description",
+            "description": "[KEY][HOME] News Description"
+        },
+        {
+            "name": "[KEY][HOME] Plan Coverage",
+            "description": "[KEY][HOME] Plan Coverage"
+        },
+        {
+            "name": "[KEY][HOME]-Banner",
+            "description": "[KEY][HOME] Banner"
+        },
+        {
+            "name": "[KEY][HOME]-CLAIM-DOCUMENTS",
+            "description": "[KEY][HOME] CLAIM DOCUMENTS"
+        },
+        {
+            "name": "[KEY] Discharge Button",
+            "description": "[KEY] Discharge Button"
+        },
+        {
+            "name": "[KEY][HOME]-ECARD",
+            "description": "[KEY][HOME] ECARD"
+        },
+        {
+            "name": "[KEY][HOME]-ECLAIM",
+            "description": "[KEY][HOME] ECLAIM"
+        },
+        {
+            "name": "[KEY][HOME]-NOTES",
+            "description": "[KEY][HOME] NOTES"
+        },
+        {
+            "name": "[KEY][HOME]-Provider-near-me",
+            "description": "[KEY][HOME] Provider near me"
+        },
+        {
+            "name": "[KEY][HOME]-QRADS",
+            "description": "[KEY][HOME] QRADS"
+        },
+        {
+            "name": "[KEY][PLAN]-Benefit",
+            "description": "[KEY][PLAN]-Benefit "
+        },
+        {
+            "name": "[KEY][PLAN]-Plan ",
+            "description": "[KEY][PLAN] Plan "
+        },
+        {
+            "name": "[KEY][PLAN]-Plan-AVAILABLE",
+            "description": "[KEY][PLAN] Plan AVAILABLE"
+        },
+        {
+            "name": "[KEY][PLAN]-Plan-AVAILABLE Field",
+            "description": "[KEY][PLAN] Plan AVAILABLE Field"
+        },
+        {
+            "name": "[KEY][PLAN]-Plan-MAX",
+            "description": "[KEY][PLAN] Plan MAX"
+        },
+        {
+            "name": "[KEY][PLAN]-Plan-MAX Field",
+            "description": "[KEY][PLAN] Plan MAX Field"
+        },
+        {
+            "name": "[KEY][PLAN]-Plan-USED",
+            "description": "[KEY][PLAN] USED"
+        },
+        {
+            "name": "[KEY][PLAN]-Plan-USED Field",
+            "description": "[KEY][PLAN] Plan Detail USED Field"
+        },
+        {
+            "name": "[KEY][PLAN]-POLIS-DATE",
+            "description": "[KEY][PLAN] POLIS DATE"
+        },
+        {
+            "name": "[KEY][PROFILE] Nomor Kartu",
+            "description": "[KEY][PROFILE] Nomor Kartu"
+        },
+        {
+            "name": "[KEY][PROFILE] Perusahaan",
+            "description": "[KEY][PROFILE] Perusahaan"
+        },
+        {
+            "name": "[KEY][PROFILE] Polis",
+            "description": "[KEY][PROFILE] Polis"
+        },
+        {
+            "name": "[KEY][PROFILE] Tanggal Lahir",
+            "description": "[KEY][PROFILE] Tanggal Lahir"
+        },
+        {
+            "name": "[KEY][PROFILE]-COVERAGE",
+            "description": "[KEY][PROFILE] COVERAGE"
+        },
+        {
+            "name": "[KEY][PROFILE] Benefit Plan List",
+            "description": "[KEY][PROFILE] Benefit Plan List"
+        },
+        {
+            "name": "[KEY][PROFILE]-Participant-Type",
+            "description": "[KEY][PROFILE] Participant Type"
+        },
+        {
+            "name": "[KEY][PROFILE]-Periode-Efektif",
+            "description": "[KEY][PROFILE] Periode Efektif"
+        },
+        {
+            "name": "[KEY][Provider]-Provider",
+            "description": "[KEY][Provider] Provider"
+        },
+        {
+            "name": "[KEY][SETTING] Syarat & Ketentuan",
+            "description": "[KEY][SETTING] Syarat & Ketentuan"
+        },
+        {
+            "name": "[KEY][SETTING]-Contact-Center",
+            "description": "[KEY][SETTING] Contact Center"
+        },
+        {
+            "name": "[KEY][SETTING]-FAQ",
+            "description": "[KEY][SETTING] FAQ"
+        },
+        {
+            "name": "[KEY][SETTING]-Pilih-Bahasa",
+            "description": "[KEY][SETTING] Pilih Bahasa"
+        },
+        {
+            "name": "[KEY][SETTING]-Tentang-Kami",
+            "description": "[KEY][SETTING] Tentang Kami"
+        },
+        {
+            "name": "[KEY][SETTING]-Ubah-Email",
+            "description": "[KEY][SETTING] Ubah Email"
+        },
+        {
+            "name": "[KEY][SETTING]-Ubah-Password",
+            "description": "[KEY][SETTING] Ubah Password"
+        }
+    ],
+    "condition": [
+        {
+            "name": "hide cov profile",
+            "config": [
+                {
+                    "type": "==",
+                    "value": "17.0023",
+                    "parameterName": "corp_code"
+                },
+                {
+                    "type": "==",
+                    "value": "MT70000",
+                    "parameterName": "plan_code"
+                }
+            ],
+            "description": "hide cov profile"
+        },
+        {
+            "name": "hide Qrads",
+            "config": [
+                {
+                    "type": "==",
+                    "value": "true",
+                    "parameterName": "global"
+                }
+            ],
+            "description": "hide Qrads"
+        },
+        {
+            "name": "hide plan gl",
+            "config": [
+                {
+                    "type": "==",
+                    "value": "37",
+                    "parameterName": "benefit_code"
+                }
+            ],
+            "description": "hide plan gl"
+        },
+        {
+            "name": "hide tombol pulang",
+            "config": [
+                {
+                    "type": "==",
+                    "value": "true",
+                    "parameterName": "global"
+                }
+            ],
+            "description": "hide tombol pulang"
+        }
+    ],
+    "actionrule": [
+        {
+            "data": "",
+            "name": "MT70000",
+            "rule": "hide cov profile",
+            "action": "hide",
+            "enable": true,
+            "verbose": false,
+            "variable": "[KEY][PROFILE]-COVERAGE-List",
+            "description": "MT70000",
+            "verboseMessage": ""
+        },
+        {
+            "data": "",
+            "name": "benefit",
+            "rule": "hide plan gl",
+            "action": "show",
+            "enable": true,
+            "verbose": false,
+            "variable": "[KEY][PLAN]-Benefit",
+            "description": "benefit",
+            "verboseMessage": ""
+        },
+        {
+            "data": "",
+            "name": "benefit max",
+            "rule": "hide plan gl",
+            "action": "hide",
+            "enable": true,
+            "verbose": false,
+            "variable": "[KEY][BENEFIT]-Benefit-MAX",
+            "description": "benefit max",
+            "verboseMessage": ""
+        },
+        {
+            "data": "",
+            "name": "hide Eclaim",
+            "rule": "hide Qrads",
+            "action": "hide",
+            "enable": true,
+            "verbose": false,
+            "variable": "[KEY][HOME]-Eclaim-Reimbursement",
+            "description": "hide Eclaim",
+            "verboseMessage": ""
+        },
+        {
+            "data": "",
+            "name": "hide plan gl",
+            "rule": "hide plan gl",
+            "action": "hide",
+            "enable": true,
+            "verbose": false,
+            "variable": "[KEY][PLAN]-Plan ",
+            "description": "hide plan gl",
+            "verboseMessage": ""
+        },
+        {
+            "data": "",
+            "name": "hide Qrads",
+            "rule": "hide Qrads",
+            "action": "show",
+            "enable": true,
+            "verbose": false,
+            "variable": "[KEY][HOME]-QRADS",
+            "description": "hide Qrads",
+            "verboseMessage": ""
+        },
+        {
+            "data": "",
+            "name": "hide tombol pulang",
+            "rule": "hide tombol pulang",
+            "action": "hide",
+            "enable": false,
+            "verbose": false,
+            "variable": "[KEY] Discharge Button",
+            "description": "hide tombol pulang",
+            "verboseMessage": ""
+        }
+    ]
+}

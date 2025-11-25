@@ -1,0 +1,75 @@
+{
+  "name": "tmmin",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@ckeditor/ckeditor5-alignment": "^40.0.0",
+    "@ckeditor/ckeditor5-build-classic": "^38.1.0",
+    "@ckeditor/ckeditor5-react": "^6.1.0",
+    "@ckeditor/ckeditor5-source-editing": "^40.0.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.4",
+    "@mui/icons-material": "^5.13.7",
+    "@mui/material": "^5.13.7",
+    "@mui/styled-engine-sc": "^5.12.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.38",
+    "@types/prismjs": "^1.26.4",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.6",
+    "@types/react-redux": "^7.1.25",
+    "dedent": "^1.5.3",
+    "firebase": "^9.23.0",
+    "formik": "^2.4.3",
+    "jwt-decode": "^3.1.2",
+    "jwt-encode": "^1.0.1",
+    "prismjs": "^1.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-gauge-chart": "^0.4.1",
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.14.1",
+    "react-scripts": "^5.0.1",
+    "react-simple-code-editor": "^0.13.1",
+    "recharts": "^2.7.2",
+    "redux": "^4.2.1",
+    "styled-components": "^5.3.11",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "publish:dev": "docker compose build dev && docker compose push dev &&  gcloud run deploy cms-tmmin-dev --image gcr.io/project-digital-admedika/cms-tmmin-dev:1.0.0 --platform managed --region asia-southeast2 --allow-unauthenticated --port 3000 --project project-digital-admedika"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-gauge-chart": "^0.4.0",
+    "@types/react-router-dom": "^5.3.3"
+  }
+}

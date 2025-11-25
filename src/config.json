@@ -1,0 +1,2129 @@
+{
+  "configs": [
+    {
+        "label": "GetToken",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": [
+            "nahsehat APIs is using OAuth 2.0 as the authorization framework. To get the accesstoken, you need to be authorized by appID and secretKey.",
+            "Accesstoken is an opaque string token that identify the user of the API. This token is required each time an application call our API. Once accesstoken is obtained any request with valid credentials will be considered valid. Your credentials act like password, keep it secret and secure, should anyone obtain this information, immediately reset them in nahsehat client dashboard.",
+            "For extra security we can add your application IP Address to the whitelist."
+        ],
+        "response": [
+            {
+                "fieldName": "accessToken",
+                "enable": true
+            },
+            {
+                "fieldName": "accessTokenExpiresIn",
+                "enable": true
+            },
+            {
+                "fieldName": "refreshToken",
+                "enable": true
+            },
+            {
+                "fieldName": "refreshTokenExpiresIn",
+                "enable": true
+            }
+        ]
+    },
+    {
+        "label": "RefreshToken",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan accessToken baru (berlaku 1 jam) dan refreshToken selanjutnya (berlaku 24 jam)."],
+        "response": [
+            {
+                "fieldName": "accessToken",
+                "enable": true
+            },
+            {
+                "fieldName": "accessTokenExpiresIn",
+                "enable": true
+            },
+            {
+                "fieldName": "refreshToken",
+                "enable": true
+            },
+            {
+                "fieldName": "refreshTokenExpiresIn",
+                "enable": true
+            }
+        ]
+    },
+    {
+        "label": "FaskesList",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan daftar dan informasi singkat faskes BUMN."],
+        "response": [
+            {
+                "fieldName": "provider_id",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_name",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_logo",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_banner",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_type",
+                "enable": true
+            },
+            {
+                "fieldName": "open_today",
+                "enable": true
+            },
+            {
+                "fieldName": "partner",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "partner_name",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "partner_providerid",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "partner_lastsync",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "adm_provider_code",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "mi_provider_code",
+                        "enable": true
+                    }
+                ]
+            },
+            {
+                "fieldName": "location",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "provider_city",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "location_gmaps",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "postal_code",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "distance",
+                        "enable": true
+                    }
+                ]
+            },
+            {
+                "fieldName": "operational_hour",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "day_start",
+                        "enable": true 
+                    },
+                    {
+                        "fieldName": "day_end",
+                        "enable": true 
+                    },
+                    {
+                        "fieldName": "time_start",
+                        "enable": true 
+                    },
+                    {
+                        "fieldName": "time_end",
+                        "enable": true 
+                    },
+                    {
+                        "fieldName": "code_start",
+                        "enable": true 
+                    },
+                    {
+                        "fieldName": "code_end",
+                        "enable": true 
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "label": "FaskesDetail",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Choose one Query Parameter to call either adm_provider_code or provider_id."],
+        "response": [
+            {
+                "fieldName": "provider_id",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_number",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_type",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_name",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_phone_number",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_logo",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_banner",
+                "enable": true
+            },
+            {
+                "fieldName": "created_at",
+                "enable": true
+            },
+            {
+                "fieldName": "is_telemedika",
+                "enable": true
+            },
+            {
+                "fieldName": "facilities_public",
+                "enable": true
+            },
+            {
+                "fieldName": "facilities_gallery",
+                "enable": true
+            },
+            {
+                "fieldName": "facilities_ward",
+                "enable": true
+            },
+            {
+                "fieldName": "partner",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "partner_name",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "partner_providerid",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "partner_lastsync",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "adm_provider_code",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "adm_provider_status",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "mi_provider_code",
+                        "enable": true
+                    }
+                ]                
+            },
+            {
+                "fieldName": "location",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "provider_city",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_address",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_longitute",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_latitute",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "location_gmaps",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "postal_code",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "distance",
+                        "enable": true
+                    }
+                ]                
+            },
+            {
+                "fieldName": "profile",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "provider_description",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "website",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "medsos_fb",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "medsos_ig",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "medsos_twitter",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "medsos_youtube",
+                        "enable": true
+                    }
+                ]                
+            },
+            {
+                "fieldName": "operational_hour",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "visiting_hour",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "open_today",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "schedule",
+                        "enable": true,
+                        "child": [
+                            {
+                                "fieldName": "day_start",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "day_end",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "time_start",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "time_end",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "code_start",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "code_end",
+                                "enable": true
+                            }
+                        ]
+                    }
+                ]                
+            },
+            {
+                "fieldName": "facilities_medical",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "is_ugd",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "facilities",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "units",
+                        "enable": true,
+                        "child": [
+                            {
+                                "fieldName": "units_id",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "units_partner_id",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "units_name",
+                                "enable": true
+                            }
+                        ]
+                    }
+                ]                
+            }
+        ]
+    },
+    {
+        "label": "FaskesFasilitas",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan daftar fasilitas dan poli suatu faskes."],
+        "response": [
+            {
+                "fieldName": "provider_id",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_name",
+                "enable": true
+            },
+            {
+                "fieldName": "facilities",
+                "enable": true
+            },
+            {
+                "fieldName": "units_name",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "units_id",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "units_partner_id",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "units_name",
+                        "enable": true
+                    }
+                ]
+            }
+        ]        
+    },
+    {
+        "label": "FaskesCode",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi singkat suatu faskes berdasarkan ID."],
+        "response": [
+            {
+                "fieldName": "provider_id",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_number",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_type",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_name",
+                "enable": true
+            },
+            {
+                "fieldName": "partner",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "partner_name",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "partner_providerid",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "partner_lastsync",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "adm_provider_code",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "adm_provider_status",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "mi_provider_code",
+                        "enable": true
+                    }
+                ]
+            }
+        ]        
+    },
+    {
+        "label": "DoctorList",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi singkat suatu faskes berdasarkan ID."],
+        "response": [
+            {
+                "fieldName": "doctor_id",
+                "enable": true
+            },
+            {
+                "fieldName": "doctor_number",
+                "enable": true
+            },
+            {
+                "fieldName": "photo_profile",
+                "enable": true
+            },
+            {
+                "fieldName": "name",
+                "enable": true
+            },
+            {
+                "fieldName": "sip_number",
+                "enable": true
+            },
+            {
+                "fieldName": "sip_expiry",
+                "enable": true
+            },
+            {
+                "fieldName": "specialization_name",
+                "enable": true
+            },
+            {
+                "fieldName": "specialization_id",
+                "enable": true
+            },
+            {
+                "fieldName": "specialization_partner_id",
+                "enable": true
+            },
+            {
+                "fieldName": "provider",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "provider_id",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_name",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_logo",
+                        "enable": true
+                    }
+                ]
+            },
+            {
+                "fieldName": "partner",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "partner_name",
+                        "enable": true
+                    }
+                ]
+            },
+            {
+                "fieldName": "unit_services",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "today_practice",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "unit",
+                        "enable": true,
+                        "child": [
+                            {
+                                "fieldName": "unit_id",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "unit_partner_id",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "unit_name",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "visit",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "telemedicine",
+                                "enable": true
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "label": "DoctorDetail",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi detil suatu dokter."],
+        "response": [
+            {
+                "fieldName": "doctor_id",
+                "enable": true
+            },
+            {
+                "fieldName": "doctor_number",
+                "enable": true
+            },
+            {
+                "fieldName": "created_at",
+                "enable": true
+            },
+            {
+                "fieldName": "name",
+                "enable": true
+            },
+            {
+                "fieldName": "photo_profile",
+                "enable": true
+            },
+            {
+                "fieldName": "specialIzation_name",
+                "enable": true
+            },
+            {
+                "fieldName": "specialIzation_id",
+                "enable": true
+            },
+            {
+                "fieldName": "specialization_partner_id",
+                "enable": true
+            },
+            {
+                "fieldName": "gender",
+                "enable": true
+            },
+            {
+                "fieldName": "email",
+                "enable": true
+            },
+            {
+                "fieldName": "str_number",
+                "enable": true
+            },
+            {
+                "fieldName": "str_expiry",
+                "enable": true
+            },
+            {
+                "fieldName": "sip_number",
+                "enable": true
+            },
+            {
+                "fieldName": "sip_expiry",
+                "enable": true
+            },
+            {
+                "fieldName": "biography",
+                "enable": true
+            },
+            {
+                "fieldName": "university",
+                "enable": true
+            },
+            {
+                "fieldName": "graduation_year",
+                "enable": true
+            },
+            {
+                "fieldName": "partner",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "partner_name",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "doctor_last_sync",
+                        "enable": true
+                    }
+                ]
+            },
+            {
+                "fieldName": "provider",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "provider_id",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_name",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_logo",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "provider_last_sync",
+                        "enable": true
+                    }
+                ]
+            },
+            {
+                "fieldName": "unit_services",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "today_practice",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "unit",
+                        "enable": true,
+                        "child": [
+                            {
+                                "fieldName": "unit_name",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "unit_id",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "unit_partner_id",
+                                "enable": true
+                            },
+                            {
+                                "fieldName": "visit_service",
+                                "enable": true,
+                                "child": [
+                                    {
+                                        "fieldName": "visit",
+                                        "enable": true
+                                    },
+                                    {
+                                        "fieldName": "schedule",
+                                        "enable": true,
+                                        "child": [
+                                            {
+                                                "fieldName": "day_code",
+                                                "enable": true
+                                            },
+                                            {
+                                                "fieldName": "day",
+                                                "enable": true
+                                            },
+                                            {
+                                                "fieldName": "time_start",
+                                                "enable": true
+                                            },
+                                            {
+                                                "fieldName": "time_end",
+                                                "enable": true
+                                            },
+                                            {
+                                                "fieldName": "quota",
+                                                "enable": true
+                                            },
+                                            {
+                                                "fieldName": "status",
+                                                "enable": true
+                                            },
+                                            {
+                                                "fieldName": "sessionTime",
+                                                "enable": true
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "fieldName": "telmed_service",
+                                "enable": true,
+                                "child": [
+                                    {
+                                        "fieldName": "telemedicine",
+                                        "enable": true
+                                    },
+                                    {
+                                        "fieldName": "schedule",
+                                        "enable": true
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]        
+    },
+    {
+        "label": "Specialization",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan daftar spesialisasi dalam suatu provider"],
+        "response": [
+            {
+              "fieldName": "name",
+              "enable": true
+            },
+            {
+              "fieldName": "id",
+              "enable": true
+            },
+            {
+              "fieldName": "partner_id",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmDiagnosisMaster",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Diagnosis keyword can be searched by ICD10 code, description in english or indonesia."],
+        "response": [
+            {
+              "fieldName": "id",
+              "enable": true
+            },
+            {
+              "fieldName": "icd_code",
+              "enable": true
+            },
+            {
+              "fieldName": "icd_cat",
+              "enable": true
+            },
+            {
+              "fieldName": "desc_en",
+              "enable": true
+            },
+            {
+              "fieldName": "desc_in",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmOCTRelation",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan ketentuan penggunaan manfaat kesehatan secara digital kepada suatu provider."],
+        "response": [
+            {
+              "fieldName": "oct",
+              "enable": true
+            },
+            {
+              "fieldName": "frontend",
+              "enable": true
+            },
+            {
+              "fieldName": "method",
+              "enable": true
+            },
+            {
+              "fieldName": "provider",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "flag",
+                  "enable": true
+                }
+              ]
+            },
+            {
+              "fieldName": "corporate",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "adm_payor_id",
+                  "enable": true
+                },
+                {
+                  "fieldName": "code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "name",
+                  "enable": true
+                }
+              ]
+            }
+        ]
+    },
+    {
+        "label": "AdmOCTContract",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan ketentuan penggunaan manfaat kesehatan secara digital kepada suatu provider terhadap aplikasi, payor dan corporate."],
+        "response": [
+            {
+              "fieldName": "provider",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "flag",
+                  "enable": true
+                }
+              ]
+            },
+            {
+              "fieldName": "contract",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "frontend",
+                  "enable": true
+                },
+                {
+                  "fieldName": "contract",
+                  "enable": true,
+                  "child": [
+                    {
+                      "fieldName": "payor",
+                      "enable": true,
+                      "child": [
+                        {
+                          "fieldName": "code",
+                          "enable": true
+                        },
+                        {
+                          "fieldName": "name",
+                          "enable": true
+                        }
+                      ]
+                    },
+                    {
+                      "fieldName": "corporate",
+                      "enable": true,
+                      "child": [
+                        {
+                          "fieldName": "code",
+                          "enable": true
+                        },
+                        {
+                          "fieldName": "name",
+                          "enable": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+        ]
+    },
+    {
+        "label": "AdmOCTContractFE",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan ketentuan penggunaan manfaat kesehatan secara digital kepada suatu aplikasi terhadap payor dan corporate."],
+        "response": [
+            {
+              "fieldName": "frontend",
+              "enable": true
+            },
+            {
+              "fieldName": "contract",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "payor",
+                  "enable": true,
+                  "child": [
+                    {
+                      "fieldName": "payor_code",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "payor_name",
+                      "enable": true
+                    }
+                  ]
+                },
+                {
+                  "fieldName": "corporate",
+                  "enable": true
+                }
+              ]
+            }
+        ]
+    },
+    {
+        "label": "AdmCheckAdmission",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan estimasi penggunaan manfaat peserta."],
+        "response": [
+            {
+              "fieldName": "plan_type",
+              "enable": true
+            },
+            {
+              "fieldName": "condition_desc",
+              "enable": true
+            },
+            {
+              "fieldName": "frequency_desc",
+              "enable": true
+            },
+            {
+              "fieldName": "excess_by",
+              "enable": true
+            },
+            {
+              "fieldName": "total_cost",
+              "enable": true
+            },
+            {
+              "fieldName": "excess_cost",
+              "enable": true
+            },
+            {
+              "fieldName": "paid_by_insurance",
+              "enable": true
+            },
+            {
+              "fieldName": "paid_by_patient",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmSearchProviderCode",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Keyword can be searched by name or provider code AdMedika."],
+        "response": [
+            {
+              "fieldName": "adm_provider_name",
+              "enable": true
+            },
+            {
+              "fieldName": "adm_provider_code",
+              "enable": true
+            },
+            {
+              "fieldName": "adm_active_flag",
+              "enable": true
+            },
+            {
+              "fieldName": "adm_type_code",
+              "enable": true
+            },
+            {
+              "fieldName": "adm_type_name",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmOCIContractPayor",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan ketentuan pembukaan akses data member dari suatu payor terhadap aplikasi."],
+        "response": [
+            {
+              "fieldName": "payor",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "payor_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "payor_name",
+                  "enable": true
+                }
+              ]
+            },
+            {
+              "fieldName": "contract",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "frontend",
+                  "enable": true
+                },
+                {
+                  "fieldName": "corporate",
+                  "enable": true
+                }
+              ]
+            }
+        ]
+    },
+    {
+        "label": "AdmOCIContractFE",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan ketentuan pembukaan akses data member kepada suatu aplikasi terhadap payor dan corporate."],
+        "response": [
+            {
+              "fieldName": "frontend",
+              "enable": true
+            },
+            {
+              "fieldName": "contract",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "payor",
+                  "enable": true,
+                  "child": [
+                    {
+                      "fieldName": "payor_code",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "payor_name",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "logo_url",
+                      "enable": true
+                    }
+                  ]
+                },
+                {
+                  "fieldName": "corporate",
+                  "enable": true
+                }
+              ]
+            }
+        ]
+    },
+    {
+        "label": "AdmMemberAccess",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Validasi member dan mendapatkan \"regKey\"."],
+        "response": [
+            {
+              "fieldName": "card_no",
+              "enable": true
+            },
+            {
+              "fieldName": "corp_code",
+              "enable": true
+            },
+            {
+              "fieldName": "date_of_birth",
+              "enable": true
+            },
+            {
+              "fieldName": "name",
+              "enable": true
+            },
+            {
+              "fieldName": "nik",
+              "enable": true
+            },
+            {
+              "fieldName": "member_type",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_name",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_code",
+              "enable": true
+            },
+            {
+              "fieldName": "corporate_info",
+              "enable": true
+            },
+            {
+              "fieldName": "gender",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmRegMember",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Date of birth in YYYY-MM-DD Mendaftarkan member dan mendapatkan \"member_key\" (berlaku 24 jam). regKey bersifat fixed akan menjadi identitas member pada platform NAHSehat."],
+        "response": [
+            {
+              "fieldName": "front_end",
+              "enable": true
+            },
+            {
+              "fieldName": "reg_date",
+              "enable": true
+            },
+            {
+              "fieldName": "member_key",
+              "enable": true
+            },
+            {
+              "fieldName": "memberKeyExpiresIn",
+              "enable": true
+            },
+            {
+              "fieldName": "member",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "card_no",
+                  "enable": true
+                },
+                {
+                  "fieldName": "member_type",
+                  "enable": true
+                },
+                {
+                  "fieldName": "corp_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "employee_id",
+                  "enable": true
+                },
+                {
+                  "fieldName": "payor_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "payor_name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "corporate_info",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan",
+                  "enable": true,
+                  "child": [
+                    {
+                      "fieldName": "coverage",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_code",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_type",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "start_date",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "end_date",
+                      "enable": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fieldName": "dependent",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "card_no",
+                  "enable": true
+                },
+                {
+                  "fieldName": "corp_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan",
+                  "enable": true,
+                  "child": [
+                    {
+                      "fieldName": "coverage",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_code",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_type",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "start_date",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "end_date",
+                      "enable": true
+                    }
+                  ]
+                }
+              ]
+            }
+        ]
+    },
+    {
+        "label": "AdmMemberCheck",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Validasi ulang member dan mendapatkan \"member_key\" baru (berlaku 24 jam)."],
+        "response": [
+            {
+              "fieldName": "member",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "card_no",
+                  "enable": true
+                },
+                {
+                  "fieldName": "member_type",
+                  "enable": true
+                },
+                {
+                  "fieldName": "corp_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "employee_id",
+                  "enable": true
+                },
+                {
+                  "fieldName": "payor_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "payor_name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "corporate_info",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan",
+                  "enable": true,
+                  "child": [
+                    {
+                      "fieldName": "coverage",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_code",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_type",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "start_date",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "end_date",
+                      "enable": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "fieldName": "dependent",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "name",
+                  "enable": true
+                },
+                {
+                  "fieldName": "card_no",
+                  "enable": true
+                },
+                {
+                  "fieldName": "corp_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan",
+                  "enable": true,
+                  "child": [
+                    {
+                      "fieldName": "coverage",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_code",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "plan_type",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "start_date",
+                      "enable": true
+                    },
+                    {
+                      "fieldName": "end_date",
+                      "enable": true
+                    }
+                  ]
+                }
+              ]
+            }
+        ]
+    },
+    {
+        "label": "AdmUnregMember",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Memutuskan data member pada aplikasi."],
+        "response": []
+    },
+    {
+        "label": "AdmMember",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi kepesertaan member."],
+        "response": [
+            {
+              "fieldName": "active_flag",
+              "enable": true
+            },
+            {
+              "fieldName": "bpjsid",
+              "enable": true
+            },
+            {
+              "fieldName": "cancellation_date",
+              "enable": true
+            },
+            {
+              "fieldName": "card_no",
+              "enable": true
+            },
+            {
+              "fieldName": "corp_code",
+              "enable": true
+            },
+            {
+              "fieldName": "corporate_info",
+              "enable": true
+            },
+            {
+              "fieldName": "dateofbirth",
+              "enable": true
+            },
+            {
+              "fieldName": "dependent_id",
+              "enable": true
+            },
+            {
+              "fieldName": "employee_id",
+              "enable": true
+            },
+            {
+              "fieldName": "faskes_level_1",
+              "enable": true
+            },
+            {
+              "fieldName": "gender",
+              "enable": true
+            },
+            {
+              "fieldName": "help_line",
+              "enable": true
+            },
+            {
+              "fieldName": "identity_no",
+              "enable": true
+            },
+            {
+              "fieldName": "member_id",
+              "enable": true
+            },
+            {
+              "fieldName": "member_since",
+              "enable": true
+            },
+            {
+              "fieldName": "member_type",
+              "enable": true
+            },
+            {
+              "fieldName": "name",
+              "enable": true
+            },
+            {
+              "fieldName": "nik",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_code",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_member_id",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_name",
+              "enable": true
+            },
+            {
+              "fieldName": "plan",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "coverage",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan_type",
+                  "enable": true
+                }
+              ]
+            },
+            {
+              "fieldName": "policy_no",
+              "enable": true
+            },
+            {
+              "fieldName": "remark",
+              "enable": true
+            },
+            {
+              "fieldName": "type_of_room",
+              "enable": true
+            },
+            {
+              "fieldName": "vip",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmDependent",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi kepesertaan keluarga (dependent). Hanya berlaku untuk tipe member Principal."],
+        "response": [
+            {
+              "fieldName": "active_flag",
+              "enable": true
+            },
+            {
+              "fieldName": "bpjsid",
+              "enable": true
+            },
+            {
+              "fieldName": "card_no",
+              "enable": true
+            },
+            {
+              "fieldName": "corp_code",
+              "enable": true
+            },
+            {
+              "fieldName": "corp_name",
+              "enable": true
+            },
+            {
+              "fieldName": "date_of_birth",
+              "enable": true
+            },
+            {
+              "fieldName": "dependent_id",
+              "enable": true
+            },
+            {
+              "fieldName": "dependent_name",
+              "enable": true
+            },
+            {
+              "fieldName": "employee_id",
+              "enable": true
+            },
+            {
+              "fieldName": "faskes_level_1",
+              "enable": true
+            },
+            {
+              "fieldName": "gender",
+              "enable": true
+            },
+            {
+              "fieldName": "member_id",
+              "enable": true
+            },
+            {
+              "fieldName": "member_type",
+              "enable": true
+            },
+            {
+              "fieldName": "nik",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_code",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_member_id",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_name",
+              "enable": true
+            },
+            {
+              "fieldName": "plan",
+              "enable": true,
+              "child": [
+                {
+                  "fieldName": "coverage",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan_code",
+                  "enable": true
+                },
+                {
+                  "fieldName": "plan_type",
+                  "enable": true
+                }
+              ]
+            },
+            {
+              "fieldName": "policy_no",
+              "enable": true
+            },
+            {
+              "fieldName": "principal_card_no",
+              "enable": true
+            },
+            {
+              "fieldName": "type_of_room",
+              "enable": true
+            },
+            {
+              "fieldName": "vip",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmPlan",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi plan dari peserta."],
+        "response": [
+            {
+              "fieldName": "coverage",
+              "enable": true
+            },
+            {
+              "fieldName": "current_limit",
+              "enable": true
+            },
+            {
+              "fieldName": "dependent_id",
+              "enable": true
+            },
+            {
+              "fieldName": "emp_name",
+              "enable": true
+            },
+            {
+              "fieldName": "employee_id",
+              "enable": true
+            },
+            {
+              "fieldName": "end_date",
+              "enable": true
+            },
+            {
+              "fieldName": "excess_by",
+              "enable": true
+            },
+            {
+              "fieldName": "family_over_limit",
+              "enable": true
+            },
+            {
+              "fieldName": "frequency_desc",
+              "enable": true
+            },
+            {
+              "fieldName": "limit_type",
+              "enable": true
+            },
+            {
+              "fieldName": "max_value",
+              "enable": true
+            },
+            {
+              "fieldName": "member_over_limit",
+              "enable": true
+            },
+            {
+              "fieldName": "member_type",
+              "enable": true
+            },
+            {
+              "fieldName": "plan_code",
+              "enable": true
+            },
+            {
+              "fieldName": "plan_type",
+              "enable": true
+            },
+            {
+              "fieldName": "record_status",
+              "enable": true
+            },
+            {
+              "fieldName": "referral_flag",
+              "enable": true
+            },
+            {
+              "fieldName": "remark",
+              "enable": true
+            },
+            {
+              "fieldName": "start_date",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmBenefit",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi benefit dari Plan peserta."],
+        "response": [
+            {
+              "fieldName": "amt_approved_assess",
+              "enable": true
+            },
+            {
+              "fieldName": "available",
+              "enable": true
+            },
+            {
+              "fieldName": "ben_consump",
+              "enable": true
+            },
+            {
+              "fieldName": "benefit_code",
+              "enable": true
+            },
+            {
+              "fieldName": "card_no",
+              "enable": true
+            },
+            {
+              "fieldName": "condition_desc",
+              "enable": true
+            },
+            {
+              "fieldName": "corp_code",
+              "enable": true
+            },
+            {
+              "fieldName": "coverage_code",
+              "enable": true
+            },
+            {
+              "fieldName": "dependent_id",
+              "enable": true
+            },
+            {
+              "fieldName": "emp_name",
+              "enable": true
+            },
+            {
+              "fieldName": "employee_id",
+              "enable": true
+            },
+            {
+              "fieldName": "end_date",
+              "enable": true
+            },
+            {
+              "fieldName": "frequency_code",
+              "enable": true
+            },
+            {
+              "fieldName": "frequency_desc",
+              "enable": true
+            },
+            {
+              "fieldName": "loa_desc",
+              "enable": true
+            },
+            {
+              "fieldName": "max_benefit",
+              "enable": true
+            },
+            {
+              "fieldName": "member_id",
+              "enable": true
+            },
+            {
+              "fieldName": "mstatus",
+              "enable": true
+            },
+            {
+              "fieldName": "multiple_condition",
+              "enable": true
+            },
+            {
+              "fieldName": "payor_code",
+              "enable": true
+            },
+            {
+              "fieldName": "plan_code",
+              "enable": true
+            },
+            {
+              "fieldName": "start_date",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmClaim",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi Claim peserta (seluruh plan dan jangka waktu).."],
+        "response": [
+            {
+              "fieldName": "Excess",
+              "enable": true
+            },
+            {
+              "fieldName": "admission_date",
+              "enable": true
+            },
+            {
+              "fieldName": "approved",
+              "enable": true
+            },
+            {
+              "fieldName": "benefit",
+              "enable": true
+            },
+            {
+              "fieldName": "claim_type",
+              "enable": true
+            },
+            {
+              "fieldName": "claims_id",
+              "enable": true
+            },
+            {
+              "fieldName": "claims_process_status",
+              "enable": true
+            },
+            {
+              "fieldName": "claims_status",
+              "enable": true
+            },
+            {
+              "fieldName": "diagnosis",
+              "enable": true
+            },
+            {
+              "fieldName": "dischargeable_date",
+              "enable": true
+            },
+            {
+              "fieldName": "incured",
+              "enable": true
+            },
+            {
+              "fieldName": "payment_date",
+              "enable": true
+            },
+            {
+              "fieldName": "provider",
+              "enable": true
+            },
+            {
+              "fieldName": "referred_op_form_no",
+              "enable": true
+            },
+            {
+              "fieldName": "remarks",
+              "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmClaimHistoryByPlan",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi Claim peserta berdasarkan jenis plan dan jangka waktu."],
+        "response": [
+            {
+                "fieldName": "Excess",
+                "enable": true
+            },
+            {
+                "fieldName": "admission_date",
+                "enable": true
+            },
+            {
+                "fieldName": "approved",
+                "enable": true
+            },
+            {
+                "fieldName": "benefit",
+                "enable": true
+            },
+            {
+                "fieldName": "claim_type",
+                "enable": true
+            },
+            {
+                "fieldName": "claims_id",
+                "enable": true
+            },
+            {
+                "fieldName": "claims_process_status",
+                "enable": true
+            },
+            {
+                "fieldName": "claims_status",
+                "enable": true
+            },
+            {
+                "fieldName": "diagnosis",
+                "enable": true
+            },
+            {
+                "fieldName": "dischargeable_date",
+                "enable": true
+            },
+            {
+                "fieldName": "incured",
+                "enable": true
+            },
+            {
+                "fieldName": "payment_date",
+                "enable": true
+            },
+            {
+                "fieldName": "provider",
+                "enable": true
+            },
+            {
+                "fieldName": "referred_op_form_no",
+                "enable": true
+            },
+            {
+                "fieldName": "remarks",
+                "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmProviderCondition",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi jaringan provider peserta."],
+        "response": [
+            {
+                "fieldName": "address",
+                "enable": true
+            },
+            {
+                "fieldName": "city",
+                "enable": true
+            },
+            {
+                "fieldName": "client_code",
+                "enable": true
+            },
+            {
+                "fieldName": "coordinates",
+                "enable": true
+            },
+            {
+                "fieldName": "description",
+                "enable": true
+            },
+            {
+                "fieldName": "distance",
+                "enable": true
+            },
+            {
+                "fieldName": "phone_number",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_code",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_name",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_type_code",
+                "enable": true
+            },
+            {
+                "fieldName": "provider_type_desc",
+                "enable": true
+            }
+        ]        
+    },
+    {
+        "label": "AdmCheckProviderByUser",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan informasi plan yang dapat digunakan di dalam suatu provider."],
+        "response": [
+            {
+                "fieldName": "corporate_info",
+                "enable": true
+            },
+            {
+                "fieldName": "data",
+                "enable": true,
+                "child": [
+                    {
+                        "fieldName": "network",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "plan_code",
+                        "enable": true
+                    },
+                    {
+                        "fieldName": "plan_type",
+                        "enable": true
+                    }
+                ]
+            },
+            {
+                "fieldName": "payor_name",
+                "enable": true
+            }
+        ]
+    },
+    {
+        "label": "AdmClaimAssessment",
+        "enableAccess": true,
+        "enableMenu": true,
+        "description": ["Mendapatkan detil dan status suatu claim berdasarkan Claim ID dan Benefit Code."],
+        "response": [
+            {
+                "fieldName": "amt_approved",
+                "enable": true
+            },
+            {
+                "fieldName": "amt_incured",
+                "enable": true
+            },
+            {
+                "fieldName": "amt_to_pay",
+                "enable": true
+            },
+            {
+                "fieldName": "benefit_code",
+                "enable": true
+            },
+            {
+                "fieldName": "benefit_name",
+                "enable": true
+            },
+            {
+                "fieldName": "claims_id",
+                "enable": true
+            },
+            {
+                "fieldName": "claims_status",
+                "enable": true
+            },
+            {
+                "fieldName": "loa_desc",
+                "enable": true
+            },
+            {
+                "fieldName": "paid_to_provider",
+                "enable": true
+            }
+        ]        
+    }
+]
+}

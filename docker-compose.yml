@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  prod:
+    container_name: cms-tmmin-prod
+    image: gcr.io/project-digital-admedika/cms-tmmin-prod:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      platforms:
+        - linux/amd64
+    ports:
+      - '3000:3000'
+
+  dev:
+    container_name: cms-tmmin-dev
+    image: gcr.io/project-digital-admedika/cms-tmmin-dev:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+      platforms:
+        - linux/amd64
+    ports:
+      - '3000:3000'
