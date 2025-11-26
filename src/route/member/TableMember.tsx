@@ -1,15 +1,15 @@
 /* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { changeTitle } from '../../redux/actions/titleAction';
 import TableGenerate from '../../component/TableGenerate';
 import { apiDeleteMember, apiGetMembers, apiUpdateMember, exportMember } from '../req/req_member';
-import { Button, TextField } from '@mui/material';
+// import { Button, TextField } from '@mui/material';
 import SystemUpdateAltIcon from '@mui/icons-material/SystemUpdateAlt';
-import { setProps } from '../../redux/actions/tagManagerAcrion';
-import TagComponent from '../../tagging/TagComponent';
+// import { setProps } from '../../redux/actions/tagManagerAcrion';
+// import TagComponent from '../../tagging/TagComponent';
 
 interface PropsMain {
     dispatch: any;

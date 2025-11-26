@@ -1,7 +1,7 @@
-import { Button, DialogActions, DialogContent, DialogTitle, Dialog } from '@mui/material';
-import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Button, DialogActions, DialogContent, Dialog } from '@mui/material';
+import { Component } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 interface PropsMain {

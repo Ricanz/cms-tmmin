@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import { Button, IconButton, ListItemIcon, ListItemText, Menu, MenuItem, Popover, Typography } from '@mui/material';
+import { Button, ListItemIcon, ListItemText, Menu, MenuItem, Popover, Typography } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 

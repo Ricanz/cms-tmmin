@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Component } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
@@ -90,7 +90,7 @@ class Register extends Component<PropsMain, StateMain> {
 }
 
 export default (): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <Register dispatch={dispatch} navigate={navigate} />;

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { useNavigate } from 'react-router-dom';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
     {
@@ -92,7 +92,7 @@ class Installed extends Component<PropsMain, StateMain> {
 }
 
 export default (): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <Installed dispatch={dispatch} navigate={navigate} />;

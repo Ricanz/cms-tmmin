@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Component } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import GaugeChart from "react-gauge-chart";
 
 
@@ -36,7 +36,7 @@ class NetworkStatus extends Component<PropsMain, StateMain> {
 }
 
 export default (): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <NetworkStatus dispatch={dispatch} navigate={navigate} />;

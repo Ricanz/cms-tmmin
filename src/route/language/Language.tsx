@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Component } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeTitle } from '../../redux/actions/titleAction';
 import TableGenerate from '../../component/TableGenerate';
@@ -76,7 +76,7 @@ class Language extends Component<PropsMain, StateMain> {
             "filter": this.state.filter,
             "type": "all"
         }).then(({ code, data, message, status }) => {
-            if (code == 200) {
+            if (code === 200) {
                 this.setState({
                     data: data.data.map((item: any) => {
                         return {
@@ -111,12 +111,12 @@ class Language extends Component<PropsMain, StateMain> {
               totalRow={this.state.totalRow}
               page={this.state.page}
               rowsPerPage={this.state.rowsPerPage}
-              onPageChanged={(p) => {
+              onPageChanged={(p: any) => {
                 this.setState({ page: p }, () => {
                   this.getData();
                 });
               }}
-              onRowsPerPageChanged={(p) => {
+              onRowsPerPageChanged={(p: any) => {
                 this.setState({ rowsPerPage: p }, () => {
                   this.getData();
                 });
@@ -124,7 +124,7 @@ class Language extends Component<PropsMain, StateMain> {
               reload={() => {
                 this.getData();
               }}
-              formAddSubmit={({ key, lang_en, lang_id }) => {
+              formAddSubmit={(key: any, lang_en: any, lang_id: any) => {
                 const accessToken = localStorage.getItem("accessToken") ?? "";
                 apiAddLanguage(accessToken, {
                   languageKey: key,
@@ -133,7 +133,7 @@ class Language extends Component<PropsMain, StateMain> {
                   this.getData();
                 });
               }}
-              formEditSubmit={(value, row) => {
+              formEditSubmit={(value: any, row: any) => {
                 const accessToken = localStorage.getItem("accessToken") ?? "";
                 apiUpdateLanguage(accessToken, {
                   languageID: row.id,
@@ -146,7 +146,7 @@ class Language extends Component<PropsMain, StateMain> {
                   this.getData();
                 });
               }}
-              deleteRow={(value) => {
+              deleteRow={(value: any) => {
                 const accessToken = localStorage.getItem("accessToken") ?? "";
                 apiDeleteLanguage(accessToken, {
                   languageID: value.id,
@@ -172,7 +172,7 @@ class Language extends Component<PropsMain, StateMain> {
 }
 
 export default (): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <Language dispatch={dispatch} navigate={navigate} />;

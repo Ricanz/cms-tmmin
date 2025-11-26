@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { Component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { changeTitle, showToast } from '../../redux/actions/titleAction';
 import { getSetupKeys, SetupKeyData, addSetupKey, updateSetupKey, deleteSetupKey } from '../req/req_config';
 import TableGenerate from '../../component/TableGenerate';
@@ -66,7 +66,7 @@ class SetupKey extends Component<PropsMain, StateMain> {
             "type": "all"
         }).then(({ data, code }) => {
             this.setState({ loading: false });
-            if (code == 200) {
+            if (code === 200) {
                 this.setState({
                     data: data.data,
                     totalRow: data.pagination.totalRecord,
@@ -101,12 +101,12 @@ class SetupKey extends Component<PropsMain, StateMain> {
                 //     setTimeout(() => this.props.dispatch(showToast(false, "")), 3000);
                 // });
               }}
-              onPageChanged={(p) => {
+              onPageChanged={(p: any) => {
                 this.setState({ page: p }, () => {
                   this.getData();
                 });
               }}
-              onRowsPerPageChanged={(p) => {
+              onRowsPerPageChanged={(p: any) => {
                 this.setState({ rowsPerPage: p }, () => {
                   this.getData();
                 });
@@ -122,7 +122,7 @@ class SetupKey extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              formAddSubmit={(value) => {
+              formAddSubmit={(value: any) => {
                 const dataSend = {
                   config: "tagTarget",
                   ...value,
@@ -142,7 +142,7 @@ class SetupKey extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              formEditSubmit={(value, row) => {
+              formEditSubmit={(value: any, row: any) => {
                 const dataSend = Object.assign(row, value);
 
                 this.setState(
@@ -165,7 +165,7 @@ class SetupKey extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              deleteRow={(row) => {
+              deleteRow={(row: any) => {
                 this.setState(
                   {
                     data: this.state.data.filter(

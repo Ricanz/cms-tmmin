@@ -40,8 +40,7 @@ class Term extends Component<PropsMain, StateMain> {
     componentDidMount(): void {
         this.props.dispatch(changeTitle("Term"));
         apiGetTerm().then(({ code, message, data }) => {
-            // console.log(data);
-            if (code == 200) {
+            if (code === 200) {
                 this.setState({
                     id: data.termID,
                     content: data.termContent,
@@ -78,8 +77,7 @@ class Term extends Component<PropsMain, StateMain> {
                 <div style={{ margin: 10, textAlign: "left", marginLeft: 0 }}>
                     <Button variant='contained' className='expand' onClick={async () => {
                         apiUpdateTerm(this.state.id, this.state.content).then(({ code, message, data }) => {
-                            // console.log(code, message, data)
-                            if (code == 200) {
+                            if (code === 200) {
                                 this.setState({ toats: true });
                             } else {
                                 alert(message);

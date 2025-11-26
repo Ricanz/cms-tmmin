@@ -1,4 +1,4 @@
-import { ResponseApi, apiPutRequest, apiRequest, getRequestWithParam } from "./req_user";
+import { ResponseApi, apiPutRequest, getRequestWithParam } from "./req_user";
 
 export async function apiGetAbout(): Promise<ResponseApi> {
     const accessToken = localStorage.getItem('accessToken') ?? "";

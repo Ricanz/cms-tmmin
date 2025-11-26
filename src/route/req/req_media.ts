@@ -1,4 +1,4 @@
-import { BASE_API, ResponseApi, apiDeleteRequest, apiRequest, getRequestWithParam } from "./req_user";
+import { BASE_API, ResponseApi, apiDeleteRequest, getRequestWithParam } from "./req_user";
 
 export async function apiRequestUpload(file: any): Promise<ResponseApi> {
     const accessToken = localStorage.getItem("accessToken") ?? "";

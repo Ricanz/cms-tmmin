@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeTitle } from '../../redux/actions/titleAction';
 import TableGenerate from '../../component/TableGenerate';
@@ -57,7 +57,7 @@ const config = [
     "default": true,
     "show_in_table": true,
     "show_in_form": true,
-    "element": (v) => {
+    "element": (v: string) => {
       return v ? "Active" : "InActive";
     }
   },
@@ -104,7 +104,7 @@ class User extends Component<PropsMain, StateMain> {
       "type": "all"
     }).then(({ code, data, message, status }) => {
       console.log("data.data", data.data);
-      if (code == 200) {
+      if (code === 200) {
         this.setState({
           data: data.data,
           totalRow: data.pagination.totalRecord,
@@ -132,12 +132,12 @@ class User extends Component<PropsMain, StateMain> {
           totalRow={this.state.totalRow}
           page={this.state.page}
           rowsPerPage={this.state.rowsPerPage}
-          onPageChanged={(p) => {
+          onPageChanged={(p: any) => {
             this.setState({ page: p }, () => {
               this.getData();
             });
           }}
-          onRowsPerPageChanged={(p) => {
+          onRowsPerPageChanged={(p: any) => {
             this.setState({ rowsPerPage: p }, () => {
               this.getData();
             });
@@ -179,9 +179,9 @@ class User extends Component<PropsMain, StateMain> {
               },
             },
           ]}
-          formAddSubmit={(data) => {
+          formAddSubmit={(data: any) => {
             apiAddUsers(data).then(({ code, message, status }) => {
-              if (code == 200) {
+              if (code === 200) {
                 this.setState({ toats: true });
                 this.getData();
               } else {
@@ -190,18 +190,13 @@ class User extends Component<PropsMain, StateMain> {
               }
             });
           }}
-          formEditSubmit={(data, row) => {
-            console.log("===>", {
-              userID: row.userID,
-              ...data,
-              userProfileImage: "-",
-            });
+          formEditSubmit={(data: any, row: any) => {
             apiUpdateUsers({
               userID: row.userID,
               ...data,
               userProfileImage: "-",
             }).then(({ code, message, status }) => {
-              if (code == 200) {
+              if (code === 200) {
                 this.setState({ toats: true });
                 this.getData();
               } else {
@@ -210,10 +205,10 @@ class User extends Component<PropsMain, StateMain> {
               }
             });
           }}
-          deleteRow={(value) => {
+          deleteRow={(value: any) => {
             apiDeleteUsers(value.userID).then(
               ({ code, message, status }) => {
-                if (code == 200) {
+                if (code === 200) {
                   this.setState({ toats: true });
                   this.getData();
                 } else {
@@ -223,7 +218,7 @@ class User extends Component<PropsMain, StateMain> {
               }
             );
           }}
-          onFilterClick={(status) => {
+          onFilterClick={(status: any) => {
             if (!status) {
               this.setState({
                 filter: "",
@@ -305,7 +300,7 @@ class User extends Component<PropsMain, StateMain> {
 }
 
 export default (): any => {
-  const count = useSelector((state: any) => state.counter.count);
+  // const count = useSelector((state: any) => state.counter.count);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return <User dispatch={dispatch} navigate={navigate} />;

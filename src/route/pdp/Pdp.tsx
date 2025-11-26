@@ -40,7 +40,7 @@ class Pdp extends Component<PropsMain, StateMain> {
     componentDidMount(): void {
         this.props.dispatch(changeTitle("Ketentuan PDP"));
         apiGetPdp().then(({ code, message, data }) => {
-            if (code == 200) {
+            if (code === 200) {
                 this.setState({
                     pdpID: data.pdpID,
                     pdpContent: data.pdpContent,
@@ -77,7 +77,7 @@ class Pdp extends Component<PropsMain, StateMain> {
                 <div style={{ margin: 10, textAlign: "left", marginLeft: 0 }}>
                     <Button variant='contained' className='expand' onClick={async () => {
                         apiUpdatePdp(this.state.pdpID, this.state.pdpContent).then(({ code, message, data }) => {
-                            if (code == 200) {
+                            if (code === 200) {
                                 this.setState({ toats: true });
                             } else {
                                 alert(message);

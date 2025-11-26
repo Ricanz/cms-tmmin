@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Component } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { changeTitle } from '../../redux/actions/titleAction';
-import { Button, Card, Checkbox, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, FormControl, FormControlLabel, MenuItem, Paper, Select, Switch, TextField } from '@mui/material';
+import { Button, Card, FormControl, FormControlLabel, MenuItem, Select, Switch } from '@mui/material';
 import configs from "../../config.json";
 import AdjustIcon from '@mui/icons-material/Adjust';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { cursorTo } from 'readline';
 
 interface PropsMain {
     dispatch: any;
@@ -120,7 +119,7 @@ class AppConfig extends Component<PropsMain, StateMain> {
                             if(ell.target.value !== "-") {
                                 let indexConfigActive = -1;
                                 this.state.field.forEach((e: any, n:number) => {
-                                    if(e["label"] == ell.target.value) {
+                                    if(e["label"] === ell.target.value) {
                                         indexConfigActive = n;
                                     }
                                 });
@@ -166,7 +165,7 @@ class AppConfig extends Component<PropsMain, StateMain> {
 }
 
 export default (): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <AppConfig dispatch={dispatch} navigate={navigate} />;

@@ -1,8 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { changeTitle, showToast } from '../../redux/actions/titleAction';
 import { getActionRules, ActionRuleData, addActionRule, updateActionRule, deleteActionRule } from '../req/req_config';
 import TableGenerate from '../../component/TableGenerate';
@@ -73,7 +73,7 @@ class ActionRule extends Component<PropsMain, StateMain> {
             "type": "all"
         }).then(({ data, code }) => {
             this.setState({ loading: false });
-            if (code == 200) {
+            if (code === 200) {
                 this.setState({
                     data: data.data,
                     totalRow: data.pagination.totalRecord,
@@ -109,12 +109,12 @@ class ActionRule extends Component<PropsMain, StateMain> {
                 //     setTimeout(() => this.props.dispatch(showToast(false, "")), 3000);
                 // });
               }}
-              onPageChanged={(p) => {
+              onPageChanged={(p: any) => {
                 this.setState({ page: p }, () => {
                   this.getData();
                 });
               }}
-              onRowsPerPageChanged={(p) => {
+              onRowsPerPageChanged={(p: any) => {
                 this.setState({ rowsPerPage: p }, () => {
                   this.getData();
                 });
@@ -130,7 +130,7 @@ class ActionRule extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              formAddSubmit={(value) => {
+              formAddSubmit={(value: any) => {
                 const dataSend = {
                   config: "tagAction",
                   ...value,
@@ -150,7 +150,7 @@ class ActionRule extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              formEditSubmit={(value, row) => {
+              formEditSubmit={(value: any, row: any) => {
                 const dataSend = Object.assign(row, value);
 
                 this.setState(
@@ -173,7 +173,7 @@ class ActionRule extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              deleteRow={(row) => {
+              deleteRow={(row: any) => {
                 this.setState(
                   {
                     data: this.state.data.filter(
@@ -190,10 +190,10 @@ class ActionRule extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              edit={(row) => {
+              edit={(row: any) => {
                 this.props.navigate("/tagManager/editAction", {
                   state: this.state.data.filter(
-                    (x) => x.tagActionID == row.tagActionID
+                    (x) => x.tagActionID === row.tagActionID
                   )[0],
                 });
               }}
@@ -207,7 +207,7 @@ class ActionRule extends Component<PropsMain, StateMain> {
 }
 
 export default (propt: any): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <ActionRule dispatch={dispatch} navigate={navigate} />;

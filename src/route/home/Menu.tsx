@@ -17,12 +17,12 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import InfoIcon from '@mui/icons-material/Info';
 import { useNavigate } from 'react-router-dom';
 import GradingIcon from '@mui/icons-material/Grading';
-import AutoStoriesIcon from '@mui/icons-material/AutoStories';
-import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
-import CampaignIcon from '@mui/icons-material/Campaign';
-import BusinessIcon from '@mui/icons-material/Business';
+// import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+// import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
+// import CampaignIcon from '@mui/icons-material/Campaign';
+// import BusinessIcon from '@mui/icons-material/Business';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
-import CategoryIcon from '@mui/icons-material/Category';
+// import CategoryIcon from '@mui/icons-material/Category';
 import PivotTableChartIcon from '@mui/icons-material/PivotTableChart';
 import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
@@ -622,7 +622,7 @@ class Menu extends Component<PropsMain, StateMain> {
                 },
             },
         ];
-        const MENU = { CS, ADMIN, SUPERADMIN };
+        const MENU: any = { CS, ADMIN, SUPERADMIN };
         const user = JSON.parse(localStorage.getItem("user") || "{}");
         const privileges = user["role"];
         this.setState({ listMenu: MENU[privileges] });
@@ -702,7 +702,7 @@ class Menu extends Component<PropsMain, StateMain> {
                         <ListItemButton sx={{ pl: 4 }} onClick={() => {
                             const listMenu = this.state.listMenu.map((menu: any) => {
                                 if (menu.childreen) {
-                                    menu.childreen = menu.childreen.map(sub => {
+                                    menu.childreen = menu.childreen.map((sub: any) => {
                                         sub.active = false;
                                         return sub;
                                     });
@@ -710,15 +710,17 @@ class Menu extends Component<PropsMain, StateMain> {
                                 return menu;
                             });
 
-                            listMenu[x].childreen?.map((_item, _i) => {
+                            listMenu[x].childreen?.map(
+                              (_item: any, _i: any) => {
                                 if (_item == item) {
-                                    _item.active = true;
-                                    return _item;
+                                  _item.active = true;
+                                  return _item;
                                 } else {
-                                    _item.active = false;
-                                    return _item;
+                                  _item.active = false;
+                                  return _item;
                                 }
-                            });
+                              }
+                            );
                             listMenu.map((__item, __i) => {
                                 if (__item == menu) {
                                     __item.active = true;
@@ -758,7 +760,7 @@ class Menu extends Component<PropsMain, StateMain> {
                         justifyContent: "center",
                         alignItems: "center"
                     }}>
-                        <img src={logo} style={{ width: '70%' }} />
+                        <img src={logo} style={{ width: '55%' }} />
                     </div>
                     <List
                         sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}

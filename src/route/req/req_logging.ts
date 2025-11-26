@@ -1,4 +1,4 @@
-import { ResponseApi, apiDeleteRequest, apiPutRequest, apiRequest, apiRequestRaw, getRequest, getRequestWithParam } from "./req_user";
+import { ResponseApi, getRequestWithParam } from "./req_user";
 
 export interface GetLogParams {
     limit: number,

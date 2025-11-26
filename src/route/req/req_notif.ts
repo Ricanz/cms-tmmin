@@ -1,4 +1,4 @@
-import { ResponseApi, apiRequestForm, apiRequestRaw } from "./req_user";
+import { ResponseApi, apiRequestRaw } from "./req_user";
 
 export async function sendNotif(sendby: String, params: any): Promise<ResponseApi> {
     const token = localStorage.getItem('accessToken') ?? "";

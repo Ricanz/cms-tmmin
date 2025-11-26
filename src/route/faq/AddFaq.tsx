@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { Component } from 'react';
+import { useDispatch } from 'react-redux';
 import { changeTitle } from '../../redux/actions/titleAction';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Alert, Autocomplete, Button, FormControl, MenuItem, Paper, Select, Snackbar, TextField, Typography } from '@mui/material';
-import MediaPopup from '../../component/MediaPopup';
-import EditorPhoto from '../photo/EditorPhoto';
+// import MediaPopup from '../../component/MediaPopup';
+// import EditorPhoto from '../photo/EditorPhoto';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import CategoryIcon from '@mui/icons-material/Category';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -36,16 +36,20 @@ class AddFaq extends Component<PropsMain, StateMain> {
 
     constructor(props: PropsMain) {
         super(props);
-        const datas = props.location.state.map((e) => e["faqCategory"]).reduce((acc, item) => {
-            console.log('acc: ', acc);
+        const datas = props.location.state
+          .map((e: any) => e["faqCategory"])
+          .reduce((acc: any, item: any) => {
+            console.log("acc: ", acc);
 
             acc[item] = (acc[item] || 0) + 1;
             return acc;
-        }, {});
-        let dataRow = {};
+          }, {});
+        let dataRow: any = {};
         let editMode = false;
         if (props.params.id) {
-            dataRow = props.location.state.filter((e) => e["faqID"] == props.params.id)[0];
+            dataRow = props.location.state.filter(
+              (e: any) => e["faqID"] === props.params.id
+            )[0];
             editMode = true;
         }
         // console.log("dataRow", props.params.id, dataRow);
@@ -241,7 +245,7 @@ class AddFaq extends Component<PropsMain, StateMain> {
 }
 
 export default (propt: any): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();

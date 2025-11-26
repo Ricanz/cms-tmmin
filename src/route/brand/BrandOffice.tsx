@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Component } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { changeTitle } from '../../redux/actions/titleAction';
 import TableGenerate from '../../component/TableGenerate';
-import { apiGetMembers, apiUpdateMember } from '../req/req_member';
 import { addBranch, deleteBranch, getBranch, updateBranch } from '../req/req_branc';
 
 interface PropsMain {
@@ -77,8 +76,8 @@ class BrandOffice extends Component<PropsMain, StateMain> {
     }
 
     getData() {
-        getBranch().then((data) => {
-            this.setState({ data: data.data, totalRow: data.data.length });
+        getBranch().then((data: any) => {
+          this.setState({ data: data.data, totalRow: data.data.length });
         });
     }
 
@@ -89,42 +88,42 @@ class BrandOffice extends Component<PropsMain, StateMain> {
 
     render() {
         return (
-            <>
-                <TableGenerate
-                    field={config.filter(item => item.show_in_table)}
-                    data={this.state.data}
-                    showButtonAdd={true}
-                    rowsPerPage={50}
-                    totalRow={this.state.totalRow}
-                    showButtonDelete={true}
-                    config={config}
-                    reload={() => {
-                        this.getData();
-                    }}
-                    formAddSubmit={(value) => {
-                        addBranch(value).then(() => {
-                            this.getData();
-                        });
-                    }}
-                    formEditSubmit={(value, row) => {
-                        updateBranch({ ...value, id: row.id }).then(() => {
-                            this.getData();
-                        });
-                    }}
-                    deleteRow={(row) => {
-                        deleteBranch(row.id).then(() => {
-                            this.getData();
-                        });
-                    }}
-                />
-            </>
+          <>
+            <TableGenerate
+              field={config.filter((item) => item.show_in_table)}
+              data={this.state.data}
+              showButtonAdd={true}
+              rowsPerPage={50}
+              totalRow={this.state.totalRow}
+              showButtonDelete={true}
+              config={config}
+              reload={() => {
+                this.getData();
+              }}
+              formAddSubmit={(value: any) => {
+                addBranch(value).then(() => {
+                  this.getData();
+                });
+              }}
+              formEditSubmit={(value: any, row: any) => {
+                updateBranch({ ...value, id: row.id }).then(() => {
+                  this.getData();
+                });
+              }}
+              deleteRow={(row: any) => {
+                deleteBranch(row.id).then(() => {
+                  this.getData();
+                });
+              }}
+            />
+          </>
         );
     }
 
 }
 
 export default (propt: any): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <BrandOffice dispatch={dispatch} navigate={navigate} type={propt.type} />;

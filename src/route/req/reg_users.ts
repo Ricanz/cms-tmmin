@@ -1,4 +1,4 @@
-import { ResponseApi, apiDeleteRequest, apiPutRequest, apiRequest, getRequestWithParam } from "./req_user";
+import { ResponseApi, apiDeleteRequest, apiRequest, getRequestWithParam } from "./req_user";
 
 export async function apiGetUsers(params: any): Promise<ResponseApi> {
     const accessToken = localStorage.getItem('accessToken') ?? "";

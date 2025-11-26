@@ -1,14 +1,11 @@
-import { Button, Card, Divider, Typography } from '@mui/material';
-import React, { Component } from 'react';
+import { Button, Card, Typography } from '@mui/material';
+import { Component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AlternateEmailOutlinedIcon from '@mui/icons-material/AlternateEmailOutlined';
 import HttpsOutlinedIcon from '@mui/icons-material/HttpsOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import { auth } from './../../firebase';
-// import { signInWithEmailAndPassword } from 'firebase/auth';
-import { Tokenizer } from '../../util/Tokenizer';
 import { setUser } from '../../redux/actions/loginAction';
 import { apiLogin } from '../req/req_user';
 
@@ -90,7 +87,7 @@ class Login extends Component<PropsMain, StateMain> {
                                     "userPassword": password,
                                     "userInsuranceId": 3
                                 }).then(({ code, message, data }) => {
-                                    if (code == 200) {
+                                    if (code === 200) {
                                         const dataUser = {
                                             "id": data.userUsername,
                                             "username": data.userName,

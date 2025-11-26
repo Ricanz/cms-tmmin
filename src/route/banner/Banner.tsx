@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { changeTitle } from '../../redux/actions/titleAction';
@@ -19,54 +19,54 @@ interface StateMain {
     rowsPerPage: number;
 }
 
-function formatDate(input) {
-    const parsedDate = new Date(input);
-    const year = parsedDate.getUTCFullYear();
-    const month = String(parsedDate.getUTCMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0 di JavaScript
-    const day = String(parsedDate.getUTCDate()).padStart(2, '0');
-    const hours = String(parsedDate.getUTCHours()).padStart(2, '0');
-    const minutes = String(parsedDate.getUTCMinutes()).padStart(2, '0');
+// function formatDate(input) {
+//     const parsedDate = new Date(input);
+//     const year = parsedDate.getUTCFullYear();
+//     const month = String(parsedDate.getUTCMonth() + 1).padStart(2, '0'); // Bulan dimulai dari 0 di JavaScript
+//     const day = String(parsedDate.getUTCDate()).padStart(2, '0');
+//     const hours = String(parsedDate.getUTCHours()).padStart(2, '0');
+//     const minutes = String(parsedDate.getUTCMinutes()).padStart(2, '0');
 
-    return `${year}-${month}-${day} ${hours}:${minutes}`;
-}
+//     return `${year}-${month}-${day} ${hours}:${minutes}`;
+// }
 
 const config = [
-    {
-        "field": "bannerName",
-        "label": "Banner Name",
-        "type": "text",
-        "default": "",
-        "show_in_table": true,
-        "show_in_form": true,
-        width: 200,
+  {
+    field: "bannerName",
+    label: "Banner Name",
+    type: "text",
+    default: "",
+    show_in_table: true,
+    show_in_form: true,
+    width: 200,
+  },
+  {
+    field: "bannerLink",
+    label: "Link",
+    type: "text",
+    default: "",
+    show_in_table: false,
+    show_in_form: true,
+  },
+  {
+    field: "bannerImage",
+    label: "Image",
+    type: "photo",
+    default: "",
+    show_in_table: true,
+    show_in_form: true,
+  },
+  {
+    field: "bannerIsActive",
+    label: "Active",
+    type: "switch",
+    default: "",
+    show_in_table: true,
+    show_in_form: true,
+    element: (value: any, row: any, self: any) => {
+      return value ? "Active" : "Non Active";
     },
-    {
-        "field": "bannerLink",
-        "label": "Link",
-        "type": "text",
-        "default": "",
-        "show_in_table": false,
-        "show_in_form": true,
-    },
-    {
-        "field": "bannerImage",
-        "label": "Image",
-        "type": "photo",
-        "default": "",
-        "show_in_table": true,
-        "show_in_form": true,
-    },
-    {
-        "field": "bannerIsActive",
-        "label": "Active",
-        "type": "switch",
-        "default": "",
-        "show_in_table": true,
-        "show_in_form": true,
-        "element": (value, row, self) => {
-            return value ? "Active" : "Non Active";
-        }
-    },
+  },
 ];
 
 class Banner extends Component<PropsMain, StateMain> {
@@ -119,22 +119,22 @@ class Banner extends Component<PropsMain, StateMain> {
               totalRow={this.state.totalRow}
               page={this.state.page}
               rowsPerPage={this.state.rowsPerPage}
-              onPageChanged={(p) => {
+              onPageChanged={(p: any) => {
                 this.setState({ page: p }, () => {
                   this.getData();
                 });
               }}
-              onRowsPerPageChanged={(p) => {
+              onRowsPerPageChanged={(p: any) => {
                 this.setState({ rowsPerPage: p }, () => {
                   this.getData();
                 });
               }}
-              formAddSubmit={(value) => {
+              formAddSubmit={(value: any) => {
                 apiAddBanner(value).then(() => {
                   this.getData();
                 });
               }}
-              formEditSubmit={(row, datas) => {
+              formEditSubmit={(row: any, datas: any) => {
                 Object.assign(datas, row);
                 apiUpdateBanner({
                   ...datas,
@@ -143,7 +143,7 @@ class Banner extends Component<PropsMain, StateMain> {
                   this.getData();
                 });
               }}
-              deleteRow={(row) => {
+              deleteRow={(row: any) => {
                 apiDeleteBanner(row.bannerID).then(() => {
                   this.getData();
                 });
