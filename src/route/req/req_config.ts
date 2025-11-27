@@ -142,6 +142,8 @@ export async function getRules(params: any): Promise<any> {
 }
 
 export async function addRule(data: any): Promise<boolean> {
+    console.log(data);
+    
     const token = localStorage.getItem('accessToken') ?? "";
     const result = await apiRequest('/cms/config/add', token, data);
     return result.status;

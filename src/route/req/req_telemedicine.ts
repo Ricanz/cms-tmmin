@@ -1,8 +1,11 @@
-import { ResponseApi, apiRequest } from "./req_user";
+import { ResponseApi, apiRequest, getRequestWithParam } from "./req_user";
 
-export async function apiGetTelemedicine(params: any): Promise<ResponseApi> {
-    const accessToken = localStorage.getItem('accessToken') ?? "";
-    return await apiRequest('/cms/feature/get?lang=id', accessToken, { "feature": "telemedicine", ...params });
+export async function apiGetTelemedicine(token: string, params: any): Promise<ResponseApi> {
+    return await getRequestWithParam('/cms/feature/get', token, {
+        ...params,
+        "feature": "telemedicine",
+        "lang": "id"
+    });
 }
 
 export async function apiAddTelemedicine(params: any): Promise<ResponseApi> {

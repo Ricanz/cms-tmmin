@@ -29,6 +29,8 @@ export async function apiGetLanguage(token: string, params: any): Promise<Respon
 }
 
 export async function apiAddLanguage(token: string, params: any): Promise<ResponseApi> {
+    console.log(params);
+    
     return await apiRequest('/cms/feature/add', token, {
         ...params,
         "feature": "language"

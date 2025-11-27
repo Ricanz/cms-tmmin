@@ -1,4 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
+/* Fixed TableGenerate with proper Formik <> MUI bindings */
 import { Component } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -37,6 +38,7 @@ import MediaPopup from "./MediaPopup";
 import TuneIcon from "@mui/icons-material/Tune";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { useSelector } from "react-redux";
 
 interface PropsMain {
   dispatch: any;
@@ -111,16 +113,25 @@ class TableGenerate extends Component<PropsMain, StateMain> {
   }
 
   renderCustomButton() {
-    return this.props.customButton ? this.props.customButton.map((e: any, i: number) => {
-      return (
-        <div key={"keys_" + i} style={{ marginLeft: 10 }}>
-          <div style={{ width: 10 }} />
-          <Button key={"cb-" + i} startIcon={<e.icon />} variant='contained' onClick={() => {
-            e.action();
-          }}>{e.title}</Button>
-        </div>
-      );
-    }) : [];
+    return this.props.customButton
+      ? this.props.customButton.map((e: any, i: number) => {
+          return (
+            <div key={"keys_" + i} style={{ marginLeft: 10 }}>
+              <div style={{ width: 10 }} />
+              <Button
+                key={"cb-" + i}
+                startIcon={<e.icon />}
+                variant="contained"
+                onClick={() => {
+                  e.action();
+                }}
+              >
+                {e.title}
+              </Button>
+            </div>
+          );
+        })
+      : [];
   }
 
   filterSearch() {
@@ -270,20 +281,6 @@ class TableGenerate extends Component<PropsMain, StateMain> {
             <TuneIcon />
           </IconButton>
         ) : null}
-        {/* <div style={{ width: 150, display: "block" }}>
-                    <FormControl style={{ width: '100%' }}>
-                        <Select value={this.state.searchField} onChange={(e) => {
-                            this.setState({ searchField: e.target.value });
-                        }} style={{ padding: 0, height: 40 }}>
-                            <MenuItem value="-">
-                                <em>Select Field</em>
-                            </MenuItem>
-                            {this.props.field.map((item: any, i: number) => {
-                                return (<MenuItem key={`field-${i}`} value={item.field}>{item.label}</MenuItem>);
-                            })}
-                        </Select>
-                    </FormControl>
-                </div> */}
         <div style={{ width: 5 }}></div>
         {this.filterSearch()}
       </div>
@@ -308,9 +305,6 @@ class TableGenerate extends Component<PropsMain, StateMain> {
         <TableRow
           key={`row-${index}`}
           selected={this.state.indexChecked === index}
-          // onDoubleClick={() => {
-
-          // }}
           onClick={() => {
             this.setState(
               {
@@ -319,14 +313,10 @@ class TableGenerate extends Component<PropsMain, StateMain> {
               () => {
                 if (this.state.indexChecked >= 0) {
                   if (item) {
-                    this.setState({ selectItem: item }, () => {
-                      // // console.log("Row Click", this.state.selectItem);
-                    });
+                    this.setState({ selectItem: item }, () => {});
                   }
                 } else {
-                  this.setState({ selectItem: null }, () => {
-                    // // console.log("Row Click", this.state.selectItem);
-                  });
+                  this.setState({ selectItem: null }, () => {});
                 }
               }
             );
@@ -366,73 +356,12 @@ class TableGenerate extends Component<PropsMain, StateMain> {
     ) : null;
   }
 
-  render() {
-    return (
-      <div className="column expand">
-        {this.state.showFilter ? this.renderCustomFilter() : null}
-
-        {this.renderToolbar()}
-
-        <Paper className="expand" style={{ marginRight: 20 }}>
-          <TableContainer>
-            <Table>
-              <TableHead>
-                <TableRow>{this.renderHead()}</TableRow>
-              </TableHead>
-              <TableBody>{this.renderBody()}</TableBody>
-            </Table>
-          </TableContainer>
-        </Paper>
-
-        <div style={{ height: 80, marginRight: 10 }} className="row">
-          {this.state.loading ? (
-            <CircularProgress size={20} style={{ margin: 10 }} />
-          ) : (
-            <div></div>
-          )}
-          <div className="expand">
-            <TablePagination
-              // rowsPerPageOptions={[10, 25, 50]}
-              rowsPerPageOptions={[]}
-              component="div"
-              count={this.props.totalRow || 10}
-              rowsPerPage={this.props.rowsPerPage || 10}
-              page={this.props.page || 0}
-              onPageChange={(event, newPage) => {
-                if (this.props.onPageChanged) {
-                  this.props.onPageChanged(newPage);
-                }
-              }}
-              onRowsPerPageChange={(event) => {
-                if (this.props.onRowsPerPageChanged) {
-                  this.props.onRowsPerPageChanged(+event.target.value);
-                }
-              }}
-            />
-          </div>
-        </div>
-
-        {this.renderDialogEditData(this.props.config)}
-
-        {this.state.mediaPopup ? (
-          <MediaPopup
-            type={this.state.type}
-            open={true}
-            closePopup={() => this.setState({ mediaPopup: false })}
-            onClick={(url: string) => {
-              this.state.callbackMediaPopup(url);
-            }}
-          />
-        ) : null}
-      </div>
-    );
-  }
-
   dynamicForm(config: any, onSubmit: any) {
     const initialValues = config.reduce(
       (acc: any, curr: any) => ({ ...acc, [curr.field]: curr.default }),
       {}
     );
+
     return (
       <Formik
         initialValues={initialValues}
@@ -447,11 +376,15 @@ class TableGenerate extends Component<PropsMain, StateMain> {
               fieldConfig.show_in_form && (
                 <div key={fieldConfig.field} style={{ marginBottom: 20 }}>
                   <Field name={fieldConfig.field}>
-                    {(field: any, form: any) => {
+                    {({ field, form }: any) => {
+                      // Use explicit mapping to MUI props so Formik state updates correctly
+                      const name = field.name;
+                      const value =
+                        field.value === undefined ? "" : field.value;
+
                       switch (fieldConfig.type) {
-                        case "json":
-                          const data = form.values;
-                          const json = data[fieldConfig.field];
+                        case "json": {
+                          const json = form.values[name];
                           return (
                             <div>
                               <p
@@ -467,14 +400,14 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                                 className="preview"
                                 style={{
                                   height: "auto",
-                                  backgroundColor: "#282c34", // Dark mode background
-                                  color: "#61dafb", // Font color biru muda
+                                  backgroundColor: "#282c34",
+                                  color: "#61dafb",
                                   padding: "15px",
                                   fontSize: "12px",
                                   borderRadius: "8px",
-                                  fontFamily: "monospace", // Agar terlihat seperti di code editor
-                                  whiteSpace: "pre-wrap", // Agar tidak overflow
-                                  wordBreak: "break-word", // Mencegah teks panjang keluar layar
+                                  fontFamily: "monospace",
+                                  whiteSpace: "pre-wrap",
+                                  wordBreak: "break-word",
                                   overflowX: "auto",
                                 }}
                               >
@@ -484,62 +417,72 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                               </div>
                             </div>
                           );
+                        }
 
                         case "text":
                           return (
                             <TextField
-                              {...field}
+                              name={name}
+                              value={value}
+                              onChange={(e) =>
+                                form.setFieldValue(name, e.target.value)
+                              }
+                              onBlur={field.onBlur}
                               label={fieldConfig.label}
                               fullWidth
                             />
                           );
+
                         case "text_disabled":
                           return (
                             <TextField
-                              {...field}
+                              name={name}
+                              value={value}
                               InputProps={{ readOnly: true }}
                               label={fieldConfig.label}
                               fullWidth
                             />
                           );
+
                         case "content":
-                          // return <TextField {...field} label={fieldConfig.label} fullWidth />;
                           return (
                             <>
                               <TextField
-                                {...field}
+                                name={name}
+                                value={value}
                                 label={fieldConfig.label}
                                 fullWidth
                                 style={{ display: "none" }}
+                                onChange={(e) =>
+                                  form.setFieldValue(name, e.target.value)
+                                }
                               />
                               <CKEditor
                                 //@ts-ignore
                                 editor={ClassicEditor}
-                                data={this.state.content}
+                                data={value || this.state.content}
                                 onReady={(editor) => {
                                   this.editorRef = editor;
                                 }}
                                 onChange={(event, editor) => {
                                   //@ts-ignore
                                   const data = editor.getData();
-                                  form.setFieldValue(fieldConfig.field, data);
+                                  form.setFieldValue(name, data);
                                 }}
                               />
                             </>
                           );
+
                         case "photo":
                           return (
                             <>
-                              {/* <div className='preview' style={{
-                                                        height: 300,
-                                                        backgroundColor: "#ccc",
-                                                        marginBlock: 10
-                                                    }}>
-
-                                                    </div> */}
                               <div style={{ display: "flex" }}>
                                 <TextField
-                                  {...field}
+                                  name={name}
+                                  value={value}
+                                  onChange={(e) =>
+                                    form.setFieldValue(name, e.target.value)
+                                  }
                                   label={fieldConfig.label}
                                   fullWidth
                                 />
@@ -550,13 +493,7 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                                     this.setState({
                                       mediaPopup: true,
                                       callbackMediaPopup: (url: any) => {
-                                        // this.formikRef.setValues({
-                                        //     [fieldConfig.field]: url,
-                                        // });
-                                        form.setFieldValue(
-                                          fieldConfig.field,
-                                          url
-                                        );
+                                        form.setFieldValue(name, url);
                                       },
                                     })
                                   }
@@ -566,12 +503,17 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                               </div>
                             </>
                           );
+
                         case "docpdf":
                           return (
                             <>
                               <div style={{ display: "flex" }}>
                                 <TextField
-                                  {...field}
+                                  name={name}
+                                  value={value}
+                                  onChange={(e) =>
+                                    form.setFieldValue(name, e.target.value)
+                                  }
                                   label={fieldConfig.label}
                                   fullWidth
                                 />
@@ -583,10 +525,7 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                                       mediaPopup: true,
                                       type: ["pdf"],
                                       callbackMediaPopup: (url: any) => {
-                                        form.setFieldValue(
-                                          fieldConfig.field,
-                                          url
-                                        );
+                                        form.setFieldValue(name, url);
                                       },
                                     })
                                   }
@@ -596,22 +535,18 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                               </div>
                             </>
                           );
+
                         case "switch":
-                          field.value = field.value || false;
                           return (
                             <div>
                               <InputLabel>{fieldConfig.label}</InputLabel>
                               <Switch
-                                {...field}
-                                checked={field.value}
-                                onChange={() => {
-                                  form.setFieldValue(
-                                    fieldConfig.field,
-                                    !field.value
-                                  );
+                                checked={!!value}
+                                onChange={(_, checked) => {
+                                  form.setFieldValue(name, checked);
                                   if (fieldConfig.onChange) {
                                     fieldConfig.onChange(
-                                      !field.value,
+                                      checked,
                                       this.state.config,
                                       this
                                     );
@@ -620,34 +555,51 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                               />
                             </div>
                           );
-                        case "date":
+
+                        case "date": {
                           const disabledDate =
                             typeof fieldConfig.disabled === "boolean"
                               ? fieldConfig.disabled
                               : false;
+                          const dateValue = value
+                            ? new Date(value).toISOString().slice(0, 10)
+                            : "";
                           return (
                             <TextField
-                              {...field}
+                              name={name}
                               type="date"
+                              value={dateValue}
+                              onChange={(e) =>
+                                form.setFieldValue(name, e.target.value)
+                              }
                               label={fieldConfig.label}
                               fullWidth
                               InputLabelProps={{ shrink: true }}
                               disabled={disabledDate}
                             />
                           );
-                        case "datetime":
-                          const value = field.value
-                            ? new Date(field.value).toISOString().slice(0, 16)
-                            : "";
-                          field.value = value;
+                        }
+
+                        case "datetime": {
                           const disabled =
                             typeof fieldConfig.disabled === "boolean"
                               ? fieldConfig.disabled
                               : false;
+                          const inputValue = value
+                            ? new Date(value).toISOString().slice(0, 16)
+                            : "";
                           return (
                             <TextField
-                              {...field}
+                              name={name}
                               type="datetime-local"
+                              value={inputValue}
+                              onChange={(e) => {
+                                // store as ISO string
+                                const v = e.target.value
+                                  ? new Date(e.target.value).toISOString()
+                                  : "";
+                                form.setFieldValue(name, v);
+                              }}
                               label={fieldConfig.label}
                               fullWidth
                               InputLabelProps={{ shrink: true }}
@@ -657,33 +609,60 @@ class TableGenerate extends Component<PropsMain, StateMain> {
                               }}
                             />
                           );
+                        }
+
                         case "textarea":
                           return (
                             <TextField
-                              {...field}
+                              name={name}
+                              value={value}
+                              onChange={(e) =>
+                                form.setFieldValue(name, e.target.value)
+                              }
+                              onBlur={field.onBlur}
                               multiline
                               rows={4}
                               label={fieldConfig.label}
                               fullWidth
                             />
                           );
+
                         case "option":
                           return (
                             <FormControl fullWidth>
                               <InputLabel>{fieldConfig.label}</InputLabel>
-                              <Select {...field}>
-                                {fieldConfig.dataOption.map((option: any, index: any) => (
-                                  <MenuItem key={index} value={option.value}>
-                                    {option.label}
-                                  </MenuItem>
-                                ))}
+                              <Select
+                                name={name}
+                                value={value}
+                                onChange={(e) =>
+                                  form.setFieldValue(name, e.target.value)
+                                }
+                                label={fieldConfig.label}
+                              >
+                                {fieldConfig.dataOption &&
+                                  fieldConfig.dataOption.map(
+                                    (option: any, index: any) => (
+                                      <MenuItem
+                                        key={index}
+                                        value={option.value}
+                                      >
+                                        {option.label}
+                                      </MenuItem>
+                                    )
+                                  )}
                               </Select>
                             </FormControl>
                           );
+
                         default:
                           return (
                             <TextField
-                              {...field}
+                              name={name}
+                              value={value}
+                              onChange={(e) =>
+                                form.setFieldValue(name, e.target.value)
+                              }
+                              onBlur={field.onBlur}
                               label={fieldConfig.label}
                               fullWidth
                             />
@@ -803,10 +782,72 @@ class TableGenerate extends Component<PropsMain, StateMain> {
       );
     }
   }
+
+  render() {
+    return (
+      <div className="column expand">
+        {this.state.showFilter ? this.renderCustomFilter() : null}
+
+        {this.renderToolbar()}
+
+        <Paper className="expand" style={{ marginRight: 20 }}>
+          <TableContainer>
+            <Table>
+              <TableHead>
+                <TableRow>{this.renderHead()}</TableRow>
+              </TableHead>
+              <TableBody>{this.renderBody()}</TableBody>
+            </Table>
+          </TableContainer>
+        </Paper>
+
+        <div style={{ height: 80, marginRight: 10 }} className="row">
+          {this.state.loading ? (
+            <CircularProgress size={20} style={{ margin: 10 }} />
+          ) : (
+            <div></div>
+          )}
+          <div className="expand">
+            <TablePagination
+              // rowsPerPageOptions={[10, 25, 50]}
+              rowsPerPageOptions={[]}
+              component="div"
+              count={this.props.totalRow || 10}
+              rowsPerPage={this.props.rowsPerPage || 10}
+              page={this.props.page || 0}
+              onPageChange={(event, newPage) => {
+                if (this.props.onPageChanged) {
+                  this.props.onPageChanged(newPage);
+                }
+              }}
+              onRowsPerPageChange={(event) => {
+                if (this.props.onRowsPerPageChanged) {
+                  this.props.onRowsPerPageChanged(+event.target.value);
+                }
+              }}
+            />
+          </div>
+        </div>
+
+        {this.renderDialogEditData(this.props.config)}
+
+        {this.state.mediaPopup ? (
+          <MediaPopup
+            type={this.state.type}
+            open={true}
+            closePopup={() => this.setState({ mediaPopup: false })}
+            onClick={(url: string) => {
+              this.state.callbackMediaPopup(url);
+            }}
+          />
+        ) : null}
+      </div>
+    );
+  }
 }
 
 export default (props: any): any => {
-  // const count = useSelector((state: any) => state.counter.count);
+  const count = useSelector((state: any) => state.counter.count);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (

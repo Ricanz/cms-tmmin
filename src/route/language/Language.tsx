@@ -127,8 +127,8 @@ class Language extends Component<PropsMain, StateMain> {
               formAddSubmit={(key: any, lang_en: any, lang_id: any) => {
                 const accessToken = localStorage.getItem("accessToken") ?? "";
                 apiAddLanguage(accessToken, {
-                  languageKey: key,
-                  languageValue: { id: lang_id, en: lang_en },
+                  languageKey: key.key,
+                  languageValue: { id: key.lang_id, en: key.lang_en },
                 }).then(() => {
                   this.getData();
                 });

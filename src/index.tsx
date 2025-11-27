@@ -41,7 +41,7 @@ import AddProduct from './route/product/AddProduct';
 import AddFaq from './route/faq/AddFaq';
 import AddDynMenu from './route/menu/AddDynMenu';
 // import { BrowserRouter } from 'react-router-dom';
-// import Telemedicine from './route/telemedicine/Telemedicine';
+import Telemedicine from './route/telemedicine/Telemedicine';
 import SetupKey from './route/tag/SetupKey';
 import Parameters from './route/tag/Parameters';
 import Rules from './route/tag/Rules';
@@ -154,11 +154,11 @@ const router = createBrowserRouter([
         element: <BrandOffice />,
         errorElement: <div>Error Page</div>,
       },
-      // {
-      //     path: "/telemedicine",
-      //     element: <Telemedicine />,
-      //     errorElement: <div>Error Page</div>,
-      // },
+      {
+          path: "/telemedicine",
+          element: <Telemedicine />,
+          errorElement: <div>Error Page</div>,
+      },
       {
         path: "/manualbook",
         element: <GuideBook />,

@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { changeTitle } from '../../redux/actions/titleAction';
 import TableGenerate from '../../component/TableGenerate';
-import { apiGetMembers, apiUpdateMember } from '../req/req_member';
-import CategoryIcon from '@mui/icons-material/Category';
+import { apiUpdateMember } from '../req/req_member';
 import { apiFaqDelete, apiFaqGet } from '../req/req_faq';
 
 interface PropsMain {

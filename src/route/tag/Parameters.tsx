@@ -56,7 +56,6 @@ class Parameters extends Component<PropsMain, StateMain> {
 
     async getData() {
         this.setState({ loading: true });
-        const accessToken = localStorage.getItem("accessToken") ?? "";
         getParameters({
             limit: this.state.rowsPerPage,
             page: this.state.page + 1,
@@ -98,14 +97,16 @@ class Parameters extends Component<PropsMain, StateMain> {
                 this.getData();
               }}
               formAddSubmit={(value: any) => {
+                console.log("SUBMIT VALUE:", value);
+                console.log("this.state.data:", this.state.data);
+
                 const dataSend = {
                   config: "tagParam",
                   ...value,
                 };
-
                 this.setState(
                   {
-                    data: [value, ...this.state.data],
+                    data: [dataSend, ...this.state.data],
                   },
                   async () => {
                     await addParameter(dataSend);
@@ -140,12 +141,12 @@ class Parameters extends Component<PropsMain, StateMain> {
                   }
                 );
               }}
-              onPageChanged={(p: any) => {
+              onPageChanged={(p) => {
                 this.setState({ page: p }, () => {
                   this.getData();
                 });
               }}
-              onRowsPerPageChanged={(p: any) => {
+              onRowsPerPageChanged={(p) => {
                 this.setState({ rowsPerPage: p }, () => {
                   this.getData();
                 });
@@ -185,7 +186,7 @@ class Parameters extends Component<PropsMain, StateMain> {
 }
 
 export default (propt: any): any => {
-    const count = useSelector((state: any) => state.counter.count);
+    // const count = useSelector((state: any) => state.counter.count);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     return <Parameters dispatch={dispatch} navigate={navigate} />;
