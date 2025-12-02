@@ -52,6 +52,7 @@ import EditAction from './route/tag/EditAction';
 import AddAction from './route/tag/AddAction';
 import Logging from './route/logging/Logging';
 import Pdp from './route/pdp/Pdp';
+import PrivacyPolicy from './route/privacyPolicy/PrivacyPolicy';
 
 const router = createBrowserRouter([
   {
@@ -157,6 +158,11 @@ const router = createBrowserRouter([
       {
           path: "/telemedicine",
           element: <Telemedicine />,
+          errorElement: <div>Error Page</div>,
+      },
+      {
+          path: "/privacy-policy",
+          element: <PrivacyPolicy />,
           errorElement: <div>Error Page</div>,
       },
       {

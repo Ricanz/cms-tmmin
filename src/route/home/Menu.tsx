@@ -20,13 +20,13 @@ import GradingIcon from '@mui/icons-material/Grading';
 // import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 // import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 // import CampaignIcon from '@mui/icons-material/Campaign';
-// import BusinessIcon from '@mui/icons-material/Business';
+import BusinessIcon from '@mui/icons-material/Business';
 import LocalLibraryIcon from '@mui/icons-material/LocalLibrary';
 // import CategoryIcon from '@mui/icons-material/Category';
-import PivotTableChartIcon from '@mui/icons-material/PivotTableChart';
-import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
+// import PivotTableChartIcon from '@mui/icons-material/PivotTableChart';
+// import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import ViewCarouselIcon from '@mui/icons-material/ViewCarousel';
-import WidgetsIcon from '@mui/icons-material/Widgets';
+// import WidgetsIcon from '@mui/icons-material/Widgets';
 import LiveHelpIcon from '@mui/icons-material/LiveHelp';
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 // import { auth } from './../../firebase';
@@ -413,214 +413,220 @@ class Menu extends Component<PropsMain, StateMain> {
             },
         ];
         const SUPERADMIN = [
-            {
-                label: "Health Article",
-                icon: NewspaperIcon,
+          {
+            label: "Health Article",
+            icon: NewspaperIcon,
+            active: false,
+            path: "/article",
+            open: true,
+            childreen: [
+              {
+                label: "Add Article",
+                icon: DriveFileRenameOutlineIcon,
                 active: false,
-                path: "/article",
-                open: true,
-                childreen: [
-                    {
-                        label: "Add Article",
-                        icon: DriveFileRenameOutlineIcon,
-                        active: false,
-                        path: "/article/add-article",
-                    },
-                    {
-                        label: "All Article",
-                        icon: ListAltIcon,
-                        active: false,
-                        path: "/article/all-article",
-                    },
-                ],
-            },
-            {
-                label: "Member",
-                icon: AccountBoxIcon,
-                active: false,
-                path: "/member",
-                open: true,
-                childreen: [
-                    {
-                        label: "All Member",
-                        icon: PersonAddIcon,
-                        active: false,
-                        path: "/member/all-member",
-                    },
-                    {
-                        label: "Active Member",
-                        icon: Person2Icon,
-                        active: false,
-                        path: "/member/active-member",
-                    },
-                    {
-                        label: "Deactive Member",
-                        icon: PersonOffIcon,
-                        active: false,
-                        path: "/member/deactive-member",
-                    },
-                ],
-            },
-            {
-                label: "FAQ",
-                icon: LiveHelpIcon,
-                active: false,
-                path: "/faq/all",
-            },
-            {
-                label: "About",
-                icon: InfoIcon,
-                active: false,
-                path: "/about",
-            },
-            {
-                label: "Term",
-                icon: GradingIcon,
-                active: false,
-                path: "/term",
-            },
-            {
-                label: "Banner",
-                icon: ViewCarouselIcon,
-                active: false,
-                path: "/banner",
-            },
-            {
-                label: "Telemedicine",
-                icon: BloodtypeIcon,
-                active: false,
-                path: "/telemedicine"
-            },
-            // {
-            //     label: "Dynamic Menu",
-            //     icon: WidgetsIcon,
-            //     active: false,
-            //     path: "/dynamicmenu"
-            // },
-            // {
-            //     label: "Branch Office",
-            //     icon: BusinessIcon,
-            //     active: false,
-            //     path: "/brandoffice"
-            // },
-            {
-                label: "Buku Panduan",
-                icon: LocalLibraryIcon,
-                active: false,
-                path: "/manualbook",
-            },
-            {
-                label: "Ketentuan PDP",
-                icon: InfoIcon,
-                active: false,
-                path: "/pdp",
-            },
-            // {
-            //     label: "Product Info",
-            //     icon: CategoryIcon,
-            //     active: false,
-            //     path: "/productinfo"
-            // },
-            // {
-            //     label: "Corporate Profile",
-            //     icon: InfoIcon,
-            //     active: false,
-            //     path: "/about"
-            // },
-            // {
-            //     label: "Term",
-            //     icon: GradingIcon,
-            //     active: false,
-            //     path: "/term"
-            // },
-            {
-                label: "Tag Manager",
-                icon: TagIcon,
-                active: false,
-                path: "/tagManager",
-                open: true,
-                childreen: [
-                    {
-                        label: "Rules",
-                        icon: LineStyleIcon,
-                        active: false,
-                        path: "/tagManager/rules",
-                    },
-                    {
-                        label: "Action",
-                        icon: AttractionsIcon,
-                        active: false,
-                        path: "/tagManager/actionRules",
-                    },
-                    {
-                        label: "* Key Target",
-                        icon: SettingsInputSvideoIcon,
-                        active: false,
-                        path: "/tagManager/setupKey",
-                    },
-                    {
-                        label: "* Parameters",
-                        icon: SettingsInputCompositeIcon,
-                        active: false,
-                        path: "/tagManager/setupParameters",
-                    },
-                ],
-            },
-            {
-                label: "Setting",
-                icon: SettingsIcon,
-                active: false,
-                path: "/setting",
-                open: true,
-                childreen: [
-                    // {
-                    //     label: "Max Claim",
-                    //     icon: SignalCellularAltIcon,
-                    //     active: false,
-                    //     path: "/setting/maxclaim"
-                    // },
-                    {
-                        label: "Language Config",
-                        icon: GTranslateIcon,
-                        active: false,
-                        path: "/setting/language",
-                    },
-                    {
-                        label: "User",
-                        icon: VerifiedUserIcon,
-                        active: false,
-                        path: "/user",
-                    },
-                    // {
-                    //     label: "Contact",
-                    //     icon: PermContactCalendarIcon,
-                    //     active: false,
-                    //     path: "/setting/contact"
-                    // },
-                    // {
-                    //     label: "Push Notification",
-                    //     icon: CampaignIcon,
-                    //     active: false,
-                    //     path: "/pushnotification"
-                    // },
-                ],
-            },
-            {
-                label: "Logging",
+                path: "/article/add-article",
+              },
+              {
+                label: "All Article",
                 icon: ListAltIcon,
                 active: false,
-                path: "/logging",
-            },
-            {
-                label: "Logout",
-                icon: PowerSettingsNewIcon,
+                path: "/article/all-article",
+              },
+            ],
+          },
+          {
+            label: "Member",
+            icon: AccountBoxIcon,
+            active: false,
+            path: "/member",
+            open: true,
+            childreen: [
+              {
+                label: "All Member",
+                icon: PersonAddIcon,
                 active: false,
-                onClick: () => {
-                    // signOut(auth);
-                    localStorage.removeItem("accessToken");
-                    document.location.reload();
-                },
+                path: "/member/all-member",
+              },
+              {
+                label: "Active Member",
+                icon: Person2Icon,
+                active: false,
+                path: "/member/active-member",
+              },
+              {
+                label: "Deactive Member",
+                icon: PersonOffIcon,
+                active: false,
+                path: "/member/deactive-member",
+              },
+            ],
+          },
+          {
+            label: "FAQ",
+            icon: LiveHelpIcon,
+            active: false,
+            path: "/faq/all",
+          },
+          {
+            label: "About",
+            icon: InfoIcon,
+            active: false,
+            path: "/about",
+          },
+          {
+            label: "Term",
+            icon: GradingIcon,
+            active: false,
+            path: "/term",
+          },
+          {
+            label: "Banner",
+            icon: ViewCarouselIcon,
+            active: false,
+            path: "/banner",
+          },
+          {
+            label: "Telemedicine",
+            icon: BloodtypeIcon,
+            active: false,
+            path: "/telemedicine",
+          },
+          // {
+          //     label: "Dynamic Menu",
+          //     icon: WidgetsIcon,
+          //     active: false,
+          //     path: "/dynamicmenu"
+          // },
+          // {
+          //     label: "Branch Office",
+          //     icon: BusinessIcon,
+          //     active: false,
+          //     path: "/brandoffice"
+          // },
+          {
+            label: "Buku Panduan",
+            icon: LocalLibraryIcon,
+            active: false,
+            path: "/manualbook",
+          },
+          {
+            label: "Ketentuan PDP",
+            icon: InfoIcon,
+            active: false,
+            path: "/pdp",
+          },
+          {
+            label: "Privacy & Policy",
+            icon: BusinessIcon,
+            active: false,
+            path: "/privacy-policy",
+          },
+          // {
+          //     label: "Product Info",
+          //     icon: CategoryIcon,
+          //     active: false,
+          //     path: "/productinfo"
+          // },
+          // {
+          //     label: "Corporate Profile",
+          //     icon: InfoIcon,
+          //     active: false,
+          //     path: "/about"
+          // },
+          // {
+          //     label: "Term",
+          //     icon: GradingIcon,
+          //     active: false,
+          //     path: "/term"
+          // },
+          {
+            label: "Tag Manager",
+            icon: TagIcon,
+            active: false,
+            path: "/tagManager",
+            open: true,
+            childreen: [
+              {
+                label: "Rules",
+                icon: LineStyleIcon,
+                active: false,
+                path: "/tagManager/rules",
+              },
+              {
+                label: "Action",
+                icon: AttractionsIcon,
+                active: false,
+                path: "/tagManager/actionRules",
+              },
+              {
+                label: "* Key Target",
+                icon: SettingsInputSvideoIcon,
+                active: false,
+                path: "/tagManager/setupKey",
+              },
+              {
+                label: "* Parameters",
+                icon: SettingsInputCompositeIcon,
+                active: false,
+                path: "/tagManager/setupParameters",
+              },
+            ],
+          },
+          {
+            label: "Setting",
+            icon: SettingsIcon,
+            active: false,
+            path: "/setting",
+            open: true,
+            childreen: [
+              // {
+              //     label: "Max Claim",
+              //     icon: SignalCellularAltIcon,
+              //     active: false,
+              //     path: "/setting/maxclaim"
+              // },
+              {
+                label: "Language Config",
+                icon: GTranslateIcon,
+                active: false,
+                path: "/setting/language",
+              },
+              {
+                label: "User",
+                icon: VerifiedUserIcon,
+                active: false,
+                path: "/user",
+              },
+              // {
+              //     label: "Contact",
+              //     icon: PermContactCalendarIcon,
+              //     active: false,
+              //     path: "/setting/contact"
+              // },
+              // {
+              //     label: "Push Notification",
+              //     icon: CampaignIcon,
+              //     active: false,
+              //     path: "/pushnotification"
+              // },
+            ],
+          },
+          {
+            label: "Logging",
+            icon: ListAltIcon,
+            active: false,
+            path: "/logging",
+          },
+          {
+            label: "Logout",
+            icon: PowerSettingsNewIcon,
+            active: false,
+            onClick: () => {
+              // signOut(auth);
+              localStorage.removeItem("accessToken");
+              document.location.reload();
             },
+          },
         ];
         const MENU: any = { CS, ADMIN, SUPERADMIN };
         const user = JSON.parse(localStorage.getItem("user") || "{}");
