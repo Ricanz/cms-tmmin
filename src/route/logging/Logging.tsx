@@ -129,12 +129,10 @@ class Logging extends Component<PropsMain, StateMain> {
           page: this.state.page + 1,
           filter: this.state.filter,
         }).then(({ code, data, message, status }) => {
-          console.log("this.state: ", this.state);
-
           if (code == 200) {
             this.setState({
               data: data.data,
-              totalRow: data.limit,
+              totalRow: data.total,
               page: data.page === 1 ? 0 : data.page - 1,
             });
           }
