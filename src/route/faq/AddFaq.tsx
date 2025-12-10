@@ -39,8 +39,6 @@ class AddFaq extends Component<PropsMain, StateMain> {
         const datas = props.location.state
           .map((e: any) => e["faqCategory"])
           .reduce((acc: any, item: any) => {
-            console.log("acc: ", acc);
-
             acc[item] = (acc[item] || 0) + 1;
             return acc;
           }, {});
@@ -48,11 +46,10 @@ class AddFaq extends Component<PropsMain, StateMain> {
         let editMode = false;
         if (props.params.id) {
             dataRow = props.location.state.filter(
-              (e: any) => e["faqID"] === props.params.id
+              (e: any) => e["faqID"] === parseInt(props.params.id)
             )[0];
             editMode = true;
         }
-        // console.log("dataRow", props.params.id, dataRow);
         this.state = {
             contentReady: props.params.id ? false : true,
             question: dataRow["faqQuestion"],
