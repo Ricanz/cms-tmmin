@@ -1,4 +1,4 @@
-import { ResponseApi, apiRequest, getRequestWithParam } from "./req_user";
+import { ResponseApi, apiDeleteRequest, apiRequest, getRequestWithParam } from "./req_user";
 
 export async function apiGetTelemedicine(token: string, params: any): Promise<ResponseApi> {
     return await getRequestWithParam('/cms/feature/get', token, {
@@ -26,7 +26,7 @@ export async function apiUpdateTelemedicine(params: any): Promise<ResponseApi> {
 
 export async function apiDeleteTelemedicine(id: string): Promise<ResponseApi> {
     const token = localStorage.getItem('accessToken') ?? "";
-    return await apiRequest('/cms/feature/delete?lang=id', token, {
+    return await apiDeleteRequest(`/cms/feature/${id}/delete?lang=id`, token, {
         id,
         "feature": "telemedicine"
     });

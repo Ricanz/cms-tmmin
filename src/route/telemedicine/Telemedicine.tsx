@@ -152,7 +152,7 @@ class Telemedicine extends Component<PropsMain, StateMain> {
                 });
               }}
               deleteRow={(row: any) => {
-                apiDeleteTelemedicine(row.id).then(() => {
+                apiDeleteTelemedicine(row.telemedicineID).then(() => {
                   this.getData();
                 });
               }}
