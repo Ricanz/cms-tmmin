@@ -48,7 +48,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish:dev": "docker compose build dev && docker compose push dev &&  gcloud run deploy cms-tmmin-dev --image gcr.io/project-digital-admedika/cms-tmmin-dev:1.0.0 --platform managed --region asia-southeast2 --allow-unauthenticated --port 3000 --project project-digital-admedika"
+    "publish:dev": "docker compose build dev && docker compose push dev &&  gcloud run deploy cms-tmmin-dev --image gcr.io/project-digital-admedika/cms-tmmin-dev:1.0.0 --platform managed --region asia-southeast2 --allow-unauthenticated --port 3000 --project project-digital-admedika",
+    "publish:prod": "docker compose build prod && docker compose push prod &&  gcloud run deploy cms-tmmin-prod --image gcr.io/project-digital-admedika/cms-tmmin-prod:1.0.0 --platform managed --region asia-southeast2 --allow-unauthenticated --port 3000 --project project-digital-admedika"
   },
   "eslintConfig": {
     "extends": [
