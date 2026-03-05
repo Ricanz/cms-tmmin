@@ -1,5 +1,5 @@
-// export const BASE_API = "https://insurance-api-dev-336781009919.asia-southeast2.run.app/api/v1";
-export const BASE_API = "https://insurance-api-prod-336781009919.asia-southeast2.run.app/api/v1";
+export const BASE_API = "https://insurance-api-dev-336781009919.asia-southeast2.run.app/api/v1";
+// export const BASE_API = "https://insurance-api-prod-336781009919.asia-southeast2.run.app/api/v1";
 // export const BASE_API = "http://localhost:3001/api/v1";
 
 

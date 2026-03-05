@@ -136,6 +136,7 @@ class Telemedicine extends Component<PropsMain, StateMain> {
               field={config.filter((item) => item.show_in_table)}
               data={this.state.data}
               showButtonAdd={true}
+              showButtonEdit={true}
               showButtonDelete={true}
               config={config}
               formAddSubmit={(value: any) => {
@@ -146,7 +147,7 @@ class Telemedicine extends Component<PropsMain, StateMain> {
               formEditSubmit={(value: any, row: any) => {
                 apiUpdateTelemedicine({
                   ...value,
-                  id: row.id,
+                  telemedicineID: row.telemedicineID,
                 }).then(() => {
                   this.getData();
                 });

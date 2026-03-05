@@ -1,4 +1,4 @@
-import { ResponseApi, apiDeleteRequest, apiRequest, getRequestWithParam } from "./req_user";
+import { ResponseApi, apiDeleteRequest, apiPutRequest, apiRequest, getRequestWithParam } from "./req_user";
 
 export async function apiGetTelemedicine(token: string, params: any): Promise<ResponseApi> {
     return await getRequestWithParam('/cms/feature/get', token, {
@@ -16,12 +16,19 @@ export async function apiAddTelemedicine(params: any): Promise<ResponseApi> {
     });
 }
 
+// export async function apiUpdateTelemedicine(params: any): Promise<ResponseApi> {
+//     const token = localStorage.getItem('accessToken') ?? "";
+//     return await apiRequest('/cms/feature/update?lang=id', token, {
+//         ...params,
+//         "feature": "telemedicine"
+//     });
+// }
+
 export async function apiUpdateTelemedicine(params: any): Promise<ResponseApi> {
-    const token = localStorage.getItem('accessToken') ?? "";
-    return await apiRequest('/cms/feature/update?lang=id', token, {
-        ...params,
-        "feature": "telemedicine"
-    });
+    const accessToken = localStorage.getItem('accessToken') ?? "";
+    console.log(params);
+    
+    return await apiPutRequest('/cms/feature/update', accessToken, { "feature": "telemedicine", ...params });
 }
 
 export async function apiDeleteTelemedicine(id: string): Promise<ResponseApi> {
