@@ -7,10 +7,10 @@ export async function apiGetUsers(params: any): Promise<ResponseApi> {
 
 export async function apiAddUsers(params: any): Promise<ResponseApi> {
     const accessToken = localStorage.getItem('accessToken') ?? "";
-    return await apiRequest('/cms/user/add/', accessToken, {
+    return await apiRequest('/cms/user/add', accessToken, {
         ...params,
         userProfileImage: "-",
-        userInsuranceId: 1,
+        userInsuranceId: 3,
     });
 }
 
